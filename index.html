@@ -165,6 +165,66 @@ a,button{font:inherit}
   font-size:10px;
 }
 
+
+/* PRODUCT TEASER — bewusst weiter unten versteckt */
+.product-gap{
+  height:clamp(360px,46vw,760px);
+  background:#201822;
+}
+.product-teaser{
+  width:100%;
+  padding:0 5vw 120px;
+  background:#201822;
+}
+.product-inner{
+  width:min(1400px,90vw);
+  margin:0 auto;
+}
+.product-image-wrap{
+  width:100%;
+  overflow:hidden;
+}
+.product-image{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.product-meta{
+  margin-top:22px;
+}
+.product-title{
+  margin:0;
+  color:#F2EEF4;
+  font-family:"Arial Black","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(28px,3.2vw,52px);
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1;
+}
+.product-sub{
+  margin:12px 0 0;
+  color:#9c8fa0;
+  font-size:10px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.site-footer{
+  padding:0 24px 32px;
+  text-align:center;
+  color:var(--muted);
+  font-size:10px;
+  background:#201822;
+}
+
+@media(max-width:720px){
+  .product-gap{height:42svh}
+  .product-teaser{padding:0 18px 88px}
+  .product-inner{width:100%}
+  .product-meta{margin-top:16px}
+  .product-title{font-size:clamp(26px,9vw,42px)}
+  .product-sub{font-size:9px;line-height:1.5}
+}
+
 /* GAME MODAL */
 .modal{
   position:fixed;
@@ -302,8 +362,24 @@ a,button{font:inherit}
 
     <button class="game-button" id="openGame" type="button">Play Tic Tac Toe</button>
 
-    <div class="footer">Copyright © LABWRK. 2026</div>
   </section>
+
+  <div class="product-gap" aria-hidden="true"></div>
+
+  <section class="product-teaser" aria-label="LABWRK. Badge 001">
+    <div class="product-inner">
+      <div class="product-image-wrap">
+        <img class="product-image" src="BadgeLogoFinishFürWebseite.png" alt="LABWRK. Badge 001">
+      </div>
+      <div class="product-meta">
+        <h2 class="product-title">BADGE 001.</h2>
+        <p class="product-sub">FIRST LABWRK. PART — COMING SOON.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">Copyright © LABWRK. 2026</footer>
+
 </main>
 
 <div class="modal" id="gameModal" aria-hidden="true">

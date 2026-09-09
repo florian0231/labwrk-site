@@ -3,63 +3,131 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F0E7F6">
-<title>LABWRK.</title>
+<title>LABWRK. — Background Motion Preview V3</title>
+<style>
+html,body{margin:0;width:100%;height:100%;background:#ecebe7}
+#loading{
+  min-height:100vh;display:grid;place-items:center;
+  font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:.12em;
+  color:#111;background:#ecebe7
+}
+</style>
 </head>
-<body style="margin:0;background:#ecebe7">
+<body>
+<div id="loading">LABWRK. PREVIEW</div>
 <script>
 (async()=>{
-  try {
-    const html=await fetch('/home-legacy.html',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.text()});
-    const extra=`<style id="labwrk-v23">
-html,body{background:#ecebe7!important;}
-body{
-  background:linear-gradient(135deg,#fff7ef 0%,#f1ddff 24%,#cfe8ff 50%,#ffd0e6 76%,#ffedb8 100%)!important;
-  background-size:190% 190%!important;
-  animation:labwrkBg 13s ease-in-out infinite alternate!important;
-}
-body::before{
-  filter:blur(58px)!important;
-  opacity:1!important;
-  background:
-    radial-gradient(42% 40% at 12% 24%,rgba(119,67,185,.82) 0%,rgba(119,67,185,0) 70%),
-    radial-gradient(40% 38% at 84% 22%,rgba(64,146,255,.78) 0%,rgba(64,146,255,0) 72%),
-    radial-gradient(46% 44% at 52% 84%,rgba(255,91,164,.72) 0%,rgba(255,91,164,0) 72%)!important;
-}
-body::after{
-  filter:blur(66px)!important;
-  opacity:.98!important;
-  background:
-    radial-gradient(38% 34% at 72% 66%,rgba(68,203,219,.60) 0%,rgba(68,203,219,0) 70%),
-    radial-gradient(34% 32% at 24% 76%,rgba(222,88,210,.58) 0%,rgba(222,88,210,0) 70%),
-    radial-gradient(36% 34% at 52% 18%,rgba(255,198,63,.56) 0%,rgba(255,198,63,0) 70%)!important;
-}
-@keyframes labwrkBg{0%{background-position:0% 34%}50%{background-position:68% 58%}100%{background-position:100% 40%}}
-@media(prefers-reduced-motion:reduce){body{animation:none!important}}
-</style>
-<script id="labwrk-tab-animation">
-(()=>{
-  const titles=['LABWRK.','LABWRK.  ·  AUTOMOTIVE DETAILS'];
-  let ti=0;
-  setInterval(()=>{ti=(ti+1)%titles.length;document.title=titles[ti]},2400);
-  const original=document.querySelector('link[rel~="icon"]');
-  const canvas=document.createElement('canvas');canvas.width=canvas.height=64;
-  const ctx=canvas.getContext('2d');let phase=0;
-  setInterval(()=>{
-    phase+=.16;ctx.clearRect(0,0,64,64);
-    const pulse=(Math.sin(phase)+1)/2;
-    ctx.fillStyle='#111111';ctx.beginPath();ctx.arc(32,32,17+3*pulse,0,Math.PI*2);ctx.fill();
-    ctx.fillStyle='#ffffff';ctx.font='700 18px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('L.',32,33);
-    const href=canvas.toDataURL('image/png');
-    if(original) original.href=href; else {const l=document.createElement('link');l.rel='icon';l.href=href;document.head.appendChild(l)}
-  },180);
-})();
-<\/script>`;
+  try{
+    const url='https://raw.githubusercontent.com/florian0231/labwrk-site/main/home-legacy.html';
+    const html=await fetch(url,{cache:'no-store'}).then(r=>{
+      if(!r.ok) throw new Error(r.status);
+      return r.text();
+    });
+
+    const extra = `
+    <base href="https://labwrk.de/">
+    <style id="labwrk-motion-preview-v3">
+      /* Current layout retained — only background colors refined and motion kept visible */
+      html,body{background:#ecebe7!important;}
+
+      body{
+        background:
+          linear-gradient(135deg,
+            #f5f2ed 0%,
+            #e7e3de 26%,
+            #dbe1e6 52%,
+            #ddd7e2 76%,
+            #ece7df 100%)!important;
+        background-size:220% 220%!important;
+        animation:labwrkBgVisible 9s ease-in-out infinite alternate!important;
+      }
+
+      body::before{
+        filter:blur(62px)!important;
+        opacity:.98!important;
+        background:
+          radial-gradient(42% 40% at 14% 24%, rgba(94,87,108,.44) 0%, rgba(94,87,108,0) 70%),
+          radial-gradient(40% 38% at 84% 22%, rgba(122,136,154,.42) 0%, rgba(122,136,154,0) 72%),
+          radial-gradient(46% 44% at 52% 84%, rgba(146,131,145,.34) 0%, rgba(146,131,145,0) 72%)!important;
+        animation:labwrkWaveAVisible 10s ease-in-out infinite alternate!important;
+      }
+
+      body::after{
+        filter:blur(70px)!important;
+        opacity:.92!important;
+        background:
+          radial-gradient(38% 34% at 72% 66%, rgba(158,171,181,.30) 0%, rgba(158,171,181,0) 70%),
+          radial-gradient(34% 32% at 24% 76%, rgba(177,163,173,.24) 0%, rgba(177,163,173,0) 70%),
+          radial-gradient(36% 34% at 52% 18%, rgba(205,198,185,.22) 0%, rgba(205,198,185,0) 70%)!important;
+        animation:labwrkWaveBVisible 13s ease-in-out infinite alternate!important;
+      }
+
+      @keyframes labwrkBgVisible{
+        0%   {background-position:0% 25%}
+        45%  {background-position:60% 72%}
+        100% {background-position:100% 32%}
+      }
+
+      @keyframes labwrkWaveAVisible{
+        0%   {transform:translate3d(-10%,-8%,0) scale(1.03) rotate(-3deg)}
+        35%  {transform:translate3d(10%,4%,0) scale(1.12) rotate(1deg)}
+        70%  {transform:translate3d(-3%,11%,0) scale(1.08) rotate(3deg)}
+        100% {transform:translate3d(14%,-4%,0) scale(1.14) rotate(-1deg)}
+      }
+
+      @keyframes labwrkWaveBVisible{
+        0%   {transform:translate3d(12%,4%,0) scale(1.04) rotate(2deg)}
+        50%  {transform:translate3d(-12%,-8%,0) scale(1.13) rotate(-3deg)}
+        100% {transform:translate3d(4%,13%,0) scale(1.09) rotate(2deg)}
+      }
+
+      @media(prefers-reduced-motion:reduce){
+        body,body::before,body::after{animation:none!important}
+      }
+    </style>
+
+    <script id="labwrk-tab-animation-preview">
+    (()=>{
+      const titles=['LABWRK.','LABWRK.  ·  AUTOMOTIVE DETAILS'];
+      let ti=0;
+      setInterval(()=>{ti=(ti+1)%titles.length;document.title=titles[ti]},2400);
+
+      const original=document.querySelector('link[rel~="icon"]');
+      const canvas=document.createElement('canvas');
+      canvas.width=canvas.height=64;
+      const ctx=canvas.getContext('2d');
+      let phase=0;
+      setInterval(()=>{
+        phase+=.16;
+        ctx.clearRect(0,0,64,64);
+        const pulse=(Math.sin(phase)+1)/2;
+        ctx.fillStyle='#111111';
+        ctx.beginPath();
+        ctx.arc(32,32,17+3*pulse,0,Math.PI*2);
+        ctx.fill();
+        ctx.fillStyle='#ffffff';
+        ctx.font='700 18px Arial';
+        ctx.textAlign='center';
+        ctx.textBaseline='middle';
+        ctx.fillText('L.',32,33);
+        const href=canvas.toDataURL('image/png');
+        if(original) original.href=href;
+        else {
+          const l=document.createElement('link');
+          l.rel='icon'; l.href=href;
+          document.head.appendChild(l);
+        }
+      },180);
+    })();
+    <\/script>`;
+
     document.open();
     document.write(html.replace('</head>',extra+'</head>'));
     document.close();
-  } catch(e) {
-    document.body.innerHTML='<main style="min-height:100vh;display:grid;place-items:center;font-family:Arial,sans-serif"><a href="/products/" style="color:#111;text-decoration:none;font-weight:700">LABWRK.</a></main>';
+  }catch(err){
+    document.body.innerHTML =
+      '<main style="min-height:100vh;display:grid;place-items:center;font:14px Arial,sans-serif">'+
+      'Vorschau konnte die aktuelle LABWRK.-Datei nicht laden.</main>';
   }
 })();
 </script>

@@ -5,260 +5,285 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ECEBE7">
 <title>Products — LABWRK.</title>
-</head>
-<body style="margin:0;background:#ECEBE7">
-<script>
-(async()=>{
-  try{
-    let html=await fetch('/products/legacy.html',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.text()});
-    html=html.split('Reduzierte Optik').join('OEM+ Optik');
-    const extra=`<style id="labwrk-products-v25-editorial">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
 :root{
-  --labwrk-page:#ECEBE7;
-  --labwrk-ink:#0F1115;
-  --labwrk-muted:#8E959F;
+  --bg:#ECEBE7;
+  --ink:#0F1115;
+  --muted:#8E959F;
+  --line:rgba(15,17,21,.18);
 }
-
-*{box-sizing:border-box;}
-html{
-  width:100%!important;
-  height:auto!important;
-  min-height:100%!important;
-  overflow-x:hidden!important;
-  overflow-y:auto!important;
-  background:var(--labwrk-page)!important;
-}
+*{box-sizing:border-box}
+html{background:var(--bg);scroll-behavior:smooth}
 body{
-  width:100%!important;
-  height:auto!important;
-  min-height:100svh!important;
-  margin:0!important;
-  overflow-x:hidden!important;
-  overflow-y:visible!important;
-  background:var(--labwrk-page)!important;
-  color:var(--labwrk-ink)!important;
+  margin:0;
+  min-height:100vh;
+  overflow-x:hidden;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
+  -webkit-font-smoothing:antialiased;
 }
-main{
-  width:100%!important;
-  max-width:none!important;
-  height:auto!important;
-  min-height:100svh!important;
-  max-height:none!important;
-  overflow:visible!important;
-  padding-bottom:clamp(90px,12vw,190px)!important;
+a{color:inherit}
+.page{
+  width:min(100%,1800px);
+  margin:0 auto;
+  padding:0 clamp(22px,4.4vw,76px) clamp(96px,10vw,170px);
 }
-
-/* Big editorial title */
-h1{
-  max-width:none!important;
-  margin:clamp(26px,3.2vw,58px) clamp(22px,5vw,84px) 0!important;
-  font-size:clamp(5.8rem,14vw,14rem)!important;
-  line-height:.76!important;
-  letter-spacing:-.065em!important;
-  overflow-wrap:normal!important;
-  word-break:normal!important;
+.topbar{
+  height:clamp(68px,7vw,102px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
 }
-
-h2{
-  max-width:14ch!important;
-  font-size:clamp(3.2rem,6.7vw,7.4rem)!important;
-  line-height:.86!important;
-  letter-spacing:-.052em!important;
-  overflow-wrap:normal!important;
-  word-break:normal!important;
+.topbar a{text-decoration:none}
+.hero{
+  padding-top:clamp(34px,4.5vw,74px);
 }
-
-img,video,svg{max-width:100%!important;}
-
-/* Neutralise old image cards / frames */
-.labwrk-media-parent,
-.labwrk-media-shell{
-  background:transparent!important;
-  border:0!important;
-  outline:0!important;
-  box-shadow:none!important;
+.eyebrow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
 }
-.labwrk-media-parent{
-  padding:0!important;
-  margin:0!important;
+.title{
+  margin:clamp(18px,2.5vw,36px) 0 0;
+  font-size:clamp(5.4rem,13vw,13.8rem);
+  line-height:.76;
+  letter-spacing:-.07em;
+  font-weight:900;
+  white-space:nowrap;
 }
-
-.labwrk-product-photo{
-  display:block!important;
-  width:100%!important;
-  max-width:none!important;
-  border:0!important;
-  outline:0!important;
-  box-shadow:none!important;
-  background:transparent!important;
+.gallery{
+  margin-top:clamp(68px,8vw,132px);
+  display:grid;
+  grid-template-columns:minmax(0,1.46fr) minmax(0,.94fr);
+  gap:clamp(20px,3vw,52px);
+  align-items:stretch;
 }
-
-/* Main product gallery: intentionally oversized and asymmetric */
-.labwrk-gallery{
-  width:calc(100% - clamp(44px,10vw,168px))!important;
-  max-width:none!important;
-  margin:clamp(72px,8vw,140px) auto clamp(82px,9vw,160px)!important;
-  display:grid!important;
-  grid-template-columns:minmax(0,1.38fr) minmax(0,.92fr)!important;
-  gap:clamp(22px,3.2vw,58px)!important;
-  align-items:start!important;
-  overflow:visible!important;
-  background:transparent!important;
-  border:0!important;
-  box-shadow:none!important;
+.media{
+  position:relative;
+  min-width:0;
+  height:clamp(520px,56vw,820px);
+  overflow:hidden;
+  background:transparent;
 }
-
-.labwrk-gallery > *{
-  min-width:0!important;
-  max-width:none!important;
-  background:transparent!important;
-  border:0!important;
-  box-shadow:none!important;
-  padding:0!important;
+.media img{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+  outline:0;
+  box-shadow:none;
 }
-
-.labwrk-gallery .labwrk-product-photo{
-  height:auto!important;
-  object-fit:cover!important;
+.media--installed img{
+  object-fit:cover;
+  object-position:center;
 }
-
-.labwrk-gallery > :first-child .labwrk-product-photo{
-  min-height:clamp(520px,68vw,940px)!important;
-  max-height:940px!important;
-  object-fit:cover!important;
+.media--product{
+  display:grid;
+  place-items:center;
 }
-
-.labwrk-gallery > :nth-child(2){
-  margin-top:clamp(52px,7vw,118px)!important;
+.media--product img{
+  object-fit:contain;
+  object-position:center;
 }
-
-.labwrk-gallery > :nth-child(2) .labwrk-product-photo{
-  min-height:clamp(460px,56vw,790px)!important;
-  max-height:790px!important;
-  object-fit:cover!important;
+.product{
+  margin-top:clamp(92px,10vw,170px);
+  display:grid;
+  grid-template-columns:minmax(0,.28fr) minmax(0,1fr);
+  gap:clamp(30px,6vw,110px);
+  align-items:start;
 }
-
-/* Give lower product information more editorial breathing room */
-.labwrk-product-copy{
-  width:min(1180px,calc(100% - clamp(44px,10vw,168px)))!important;
-  margin:0 auto!important;
+.product-index{
+  padding-top:.55em;
+  color:var(--muted);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.18em;
 }
-
+.product-title{
+  margin:0;
+  max-width:10ch;
+  font-size:clamp(3.8rem,7.2vw,8rem);
+  line-height:.84;
+  letter-spacing:-.055em;
+  font-weight:900;
+}
+.compatibility{
+  margin-top:clamp(22px,2.6vw,38px);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.description{
+  width:min(620px,100%);
+  margin-top:clamp(34px,4vw,58px);
+  font-size:clamp(16px,1.35vw,20px);
+  line-height:1.55;
+  letter-spacing:-.01em;
+}
+.description p{margin:0 0 .55em}
+.meta{
+  margin-top:clamp(56px,6vw,92px);
+  padding:16px 0;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:20px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.meta span:nth-child(2),.meta span:nth-child(3){text-align:right}
+.back{
+  display:inline-block;
+  margin-top:clamp(110px,13vw,210px);
+  text-decoration:none;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  transition:transform .18s ease,opacity .18s ease;
+}
+.back:hover{transform:translateX(-4px);opacity:.6}
+.loading{
+  min-height:48vh;
+  display:grid;
+  place-items:center;
+  color:var(--muted);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
 @media(max-width:900px){
-  h1{
-    margin:28px 18px 0!important;
-    font-size:clamp(4.1rem,18vw,8rem)!important;
-    line-height:.8!important;
+  .page{padding-left:18px;padding-right:18px}
+  .title{
+    font-size:clamp(4rem,18vw,8rem);
+    white-space:normal;
   }
-  h2{
-    font-size:clamp(2.8rem,12vw,5.6rem)!important;
-    max-width:100%!important;
+  .gallery{
+    margin-top:56px;
+    grid-template-columns:1fr;
+    gap:22px;
   }
-  .labwrk-gallery{
-    width:calc(100% - 36px)!important;
-    margin:58px auto 72px!important;
-    grid-template-columns:1fr!important;
-    gap:24px!important;
+  .media{height:auto;min-height:0}
+  .media img{height:auto;max-height:none}
+  .media--installed img,.media--product img{object-fit:contain}
+  .product{
+    margin-top:82px;
+    grid-template-columns:1fr;
+    gap:24px;
   }
-  .labwrk-gallery > :nth-child(2){margin-top:0!important;}
-  .labwrk-gallery > :first-child .labwrk-product-photo,
-  .labwrk-gallery > :nth-child(2) .labwrk-product-photo{
-    min-height:0!important;
-    max-height:none!important;
-    width:100%!important;
-    height:auto!important;
-    object-fit:contain!important;
-  }
-  .labwrk-product-copy{
-    width:calc(100% - 36px)!important;
-  }
+  .product-index{padding-top:0}
+  .product-title{max-width:none;font-size:clamp(3.1rem,14vw,5.8rem)}
+  .meta{grid-template-columns:1fr;gap:10px}
+  .meta span:nth-child(2),.meta span:nth-child(3){text-align:left}
 }
-
 @media(max-width:560px){
-  main{padding-bottom:88px!important;}
-  h1{font-size:clamp(3.5rem,19vw,5.5rem)!important;letter-spacing:-.06em!important;}
-  h2{font-size:clamp(2.5rem,13vw,4.4rem)!important;}
+  .topbar{height:64px}
+  .hero{padding-top:28px}
+  .title{font-size:clamp(3.35rem,19vw,5.5rem)}
+  .gallery{margin-top:46px}
+  .product{margin-top:68px}
+  .description{font-size:16px}
+  .back{margin-top:92px}
 }
 </style>
-<script id="labwrk-products-editorial-layout">
-(()=>{
-  const clearClasses=()=>{
-    document.querySelectorAll('.labwrk-product-photo').forEach(el=>el.classList.remove('labwrk-product-photo'));
-    document.querySelectorAll('.labwrk-media-parent').forEach(el=>el.classList.remove('labwrk-media-parent'));
-    document.querySelectorAll('.labwrk-media-shell').forEach(el=>el.classList.remove('labwrk-media-shell'));
-    document.querySelectorAll('.labwrk-gallery').forEach(el=>el.classList.remove('labwrk-gallery'));
-    document.querySelectorAll('.labwrk-product-copy').forEach(el=>el.classList.remove('labwrk-product-copy'));
-  };
+</head>
+<body>
+<main class="page">
+  <nav class="topbar">
+    <a href="../">LABWRK.</a>
+    <span>Products</span>
+  </nav>
 
-  const commonAncestor=(a,b)=>{
-    const seen=new Set();
-    let n=a;
-    while(n&&n!==document.body){seen.add(n);n=n.parentElement;}
-    n=b;
-    while(n&&n!==document.body){if(seen.has(n))return n;n=n.parentElement;}
-    return null;
-  };
+  <section class="hero">
+    <div class="eyebrow">
+      <span>Automotive Details</span>
+      <span>001</span>
+    </div>
+    <h1 class="title">PRODUCTS.</h1>
+  </section>
 
-  const apply=()=>{
-    clearClasses();
+  <section id="gallery" class="gallery" aria-label="Produktbilder">
+    <div class="loading">Loading product images</div>
+  </section>
 
-    const photos=[...document.images].filter(img=>img.naturalWidth>=500&&img.naturalHeight>=300);
-    photos.forEach(img=>{
-      img.classList.add('labwrk-product-photo');
-      const p=img.parentElement;
-      if(p)p.classList.add('labwrk-media-parent');
-      let shell=p;
-      for(let i=0;i<3&&shell&&shell!==document.body&&shell!==document.documentElement;i++,shell=shell.parentElement){
-        shell.classList.add('labwrk-media-shell');
-      }
+  <section class="product">
+    <div class="product-index">01</div>
+    <div>
+      <h2 class="product-title">DOMLAGERABDECKUNG.</h2>
+      <div class="compatibility">BMW E60 · E61 · E63 · E64</div>
+      <div class="description">
+        <p>Abdeckung für den sichtbaren Domlagerbereich.</p>
+        <p>Passend für BMW E60, E61, E63 und E64.</p>
+        <p>OEM+ Optik und saubere Integration in den Motorraum.</p>
+      </div>
+      <div class="meta">
+        <span>BMW E60 · E61 · E63 · E64</span>
+        <span>Black</span>
+        <span>Pair</span>
+      </div>
+    </div>
+  </section>
+
+  <a class="back" href="../">← Back to LABWRK.</a>
+</main>
+
+<script>
+(async()=>{
+  const gallery=document.getElementById('gallery');
+  try{
+    const legacy=await fetch('./legacy.html',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.text()});
+    const doc=new DOMParser().parseFromString(legacy,'text/html');
+    const sources=[...doc.images].map(img=>img.getAttribute('src')).filter(Boolean);
+
+    const probe=src=>new Promise(resolve=>{
+      const img=new Image();
+      img.onload=()=>resolve({src,w:img.naturalWidth,h:img.naturalHeight});
+      img.onerror=()=>resolve(null);
+      img.src=src;
     });
 
-    if(photos.length>=2){
-      const common=commonAncestor(photos[0],photos[1]);
-      if(common&&common!==document.querySelector('main')){
-        common.classList.add('labwrk-gallery');
-      }else{
-        /* If the old markup has no dedicated gallery wrapper, use the closest
-           two media wrappers and create a visual grid on their nearest safe parent. */
-        const p1=photos[0].parentElement;
-        const p2=photos[1].parentElement;
-        const fallback=commonAncestor(p1,p2);
-        if(fallback&&fallback!==document.body)fallback.classList.add('labwrk-gallery');
-      }
-    }
+    const checked=(await Promise.all(sources.map(probe))).filter(Boolean);
+    const photos=checked.filter(x=>x.w>=500&&x.h>=300).slice(0,2);
+    if(photos.length<2)throw new Error('product images not found');
 
-    /* Mark the first substantial text block after the gallery for calmer width. */
-    const gallery=document.querySelector('.labwrk-gallery');
-    if(gallery){
-      let next=gallery.nextElementSibling;
-      while(next&&next.tagName==='SCRIPT')next=next.nextElementSibling;
-      if(next)next.classList.add('labwrk-product-copy');
-    }
-  };
+    gallery.innerHTML='';
+    const installed=document.createElement('figure');
+    installed.className='media media--installed';
+    installed.innerHTML='<img alt="LABWRK Domlagerabdeckung eingebaut">';
+    installed.querySelector('img').src=photos[0].src;
 
-  const boot=()=>{
-    apply();
-    document.querySelectorAll('img').forEach(img=>{
-      if(!img.complete)img.addEventListener('load',apply,{once:true});
-    });
-    setTimeout(apply,250);
-    setTimeout(apply,900);
-  };
+    const product=document.createElement('figure');
+    product.className='media media--product';
+    product.innerHTML='<img alt="LABWRK Domlagerabdeckung Produktansicht">';
+    product.querySelector('img').src=photos[1].src;
 
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});
-  else boot();
-  window.addEventListener('resize',()=>{clearTimeout(window.__labwrkResize);window.__labwrkResize=setTimeout(apply,120)},{passive:true});
-})();
-<\/script>
-<script id="labwrk-tab-animation">
-(()=>{const titles=['Products — LABWRK.','LABWRK. / AUTOMOTIVE DETAILS'];let i=0;setInterval(()=>{i=(i+1)%titles.length;document.title=titles[i]},2400);const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d');let t=0;let l=document.querySelector('link[rel="icon"]');if(!l){l=document.createElement('link');l.rel='icon';document.head.appendChild(l)}setInterval(()=>{t+=.18;const p=(Math.sin(t)+1)/2;x.clearRect(0,0,64,64);x.fillStyle='#111';x.beginPath();x.arc(32,32,17+4*p,0,Math.PI*2);x.fill();x.fillStyle='#fff';x.font='bold 18px Arial';x.textAlign='center';x.textBaseline='middle';x.fillText('L.',32,33);l.href=c.toDataURL('image/png')},160)})();
-<\/script>`;
-    document.open();
-    document.write(html.replace('</head>',extra+'</head>'));
-    document.close();
-  }catch(e){
-    document.body.innerHTML='<main style="font:700 18px Arial;padding:32px">LABWRK.<br><span style="font-weight:400">Products konnten nicht geladen werden.</span></main>';
+    gallery.append(installed,product);
+  }catch(err){
+    gallery.innerHTML='<div class="loading">Product images could not be loaded</div>';
   }
+})();
+
+(()=>{
+  const titles=['Products — LABWRK.','LABWRK. / AUTOMOTIVE DETAILS'];
+  let i=0;
+  setInterval(()=>{i=(i+1)%titles.length;document.title=titles[i]},2600);
 })();
 </script>
 </body>

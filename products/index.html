@@ -12,7 +12,8 @@
   --bg:#1D161F;
   --fg:#F2EEF4;
   --muted:#948A98;
-  --line:rgba(242,238,244,.13);
+  --line:rgba(242,238,244,.12);
+  --panel:#D4D6E0;
 }
 *{box-sizing:border-box}
 html{background:var(--bg);scroll-behavior:smooth}
@@ -27,52 +28,52 @@ body{
 }
 a{color:inherit}
 .shell{
-  width:min(100%,1720px);
+  width:min(100%,1800px);
   margin:0 auto;
-  padding:0 clamp(20px,4.2vw,72px) clamp(80px,8vw,140px);
+  padding:0 clamp(24px,5vw,82px) clamp(90px,9vw,150px);
 }
 .topbar{
-  min-height:82px;
+  min-height:clamp(72px,6vw,92px);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:24px;
+}
+.brand,.section-label{
+  margin:0;
+  font-weight:900;
+  text-transform:uppercase;
 }
 .brand{
+  font-size:clamp(13px,.95vw,16px);
+  letter-spacing:-.035em;
   text-decoration:none;
-  font-size:15px;
-  line-height:1;
-  font-weight:900;
-  letter-spacing:-.045em;
-  text-transform:uppercase;
 }
 .section-label{
   color:var(--muted);
-  font-size:9px;
-  font-weight:700;
+  font-size:clamp(8px,.58vw,10px);
   letter-spacing:.18em;
-  text-transform:uppercase;
 }
 .hero{
-  padding-top:clamp(28px,4vw,60px);
+  width:min(76vw,1100px);
+  margin:0 auto;
+  padding-top:clamp(16px,2.5vw,34px);
 }
 .page-title{
-  width:min(76vw,1180px);
-  margin:0 auto clamp(24px,2.8vw,42px);
-  font-size:clamp(4rem,8vw,8.6rem);
-  line-height:.80;
-  letter-spacing:-.068em;
+  margin:0 0 clamp(18px,2vw,28px);
+  font-size:clamp(3rem,5.2vw,5.6rem);
+  line-height:.84;
+  letter-spacing:-.065em;
   font-weight:900;
   text-transform:uppercase;
   white-space:nowrap;
 }
 .product-visual{
   position:relative;
-  width:min(76vw,1180px);
-  aspect-ratio:6/5;
-  margin:0 auto;
+  width:100%;
+  height:min(50vw,510px);
+  min-height:340px;
   overflow:hidden;
-  background:#D4D6E0;
+  background:var(--panel);
   isolation:isolate;
   cursor:pointer;
 }
@@ -83,14 +84,15 @@ a{color:inherit}
   height:100%;
   display:block;
   border:0;
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);
   will-change:opacity,transform;
-  transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform 1s cubic-bezier(.22,.61,.36,1);
 }
 .product-visual .image-primary{
   z-index:1;
   opacity:1;
   object-fit:contain;
   object-position:center;
+  padding:2.6%;
 }
 .product-visual .image-secondary{
   z-index:2;
@@ -101,12 +103,12 @@ a{color:inherit}
 .product-visual::after{
   content:"VIEW / HOVER";
   position:absolute;
-  right:14px;
-  bottom:13px;
+  right:16px;
+  bottom:14px;
   z-index:4;
   padding:7px 9px;
-  color:rgba(242,238,244,.78);
-  background:rgba(29,22,31,.42);
+  color:rgba(242,238,244,.72);
+  background:rgba(29,22,31,.38);
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
   font-size:8px;
@@ -118,31 +120,55 @@ a{color:inherit}
 }
 @media(hover:hover) and (pointer:fine){
   .product-visual:hover::after{opacity:1}
-  .product-visual:hover .image-primary{opacity:0;transform:scale(1.01)}
+  .product-visual:hover .image-primary{opacity:0;transform:scale(1.012)}
   .product-visual:hover .image-secondary{opacity:1;transform:scale(1.012)}
 }
 .product-visual.is-alt .image-primary{opacity:0;transform:scale(1.01)}
-.product-visual.is-alt .image-secondary{opacity:1;transform:scale(1.012)}
-.product-info{
-  width:min(76vw,1180px);
-  margin:0 auto;
-  padding-top:clamp(24px,2.6vw,38px);
+.product-visual.is-alt .image-secondary{opacity:1;transform:scale(1.01)}
+.hero-meta{
+  margin-top:14px;
   display:grid;
-  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
-  gap:clamp(42px,7vw,110px);
+  grid-template-columns:44px minmax(0,1fr) auto;
+  gap:16px;
+  align-items:center;
+  color:var(--muted);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.hero-meta strong{
+  color:var(--fg);
+  font-weight:700;
+}
+.product-info{
+  width:min(76vw,1100px);
+  margin:clamp(72px,8vw,125px) auto 0;
+  display:grid;
+  grid-template-columns:72px minmax(0,1fr);
+  gap:clamp(24px,4vw,64px);
   align-items:start;
+}
+.index{
+  padding-top:.55em;
+  color:var(--muted);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.15em;
+}
+.product-copy{
+  width:min(720px,100%);
 }
 .product-title{
   margin:0;
-  max-width:12ch;
-  font-size:clamp(2.7rem,4.8vw,5.3rem);
-  line-height:.86;
+  font-size:clamp(2.8rem,5vw,5.3rem);
+  line-height:.88;
   letter-spacing:-.058em;
   font-weight:900;
   text-transform:uppercase;
 }
 .compatibility{
-  margin-top:14px;
+  margin-top:clamp(14px,1.5vw,22px);
   color:var(--muted);
   font-size:10px;
   line-height:1.5;
@@ -151,21 +177,22 @@ a{color:inherit}
   text-transform:uppercase;
 }
 .description{
-  padding-top:.28em;
-  font-size:clamp(15px,1.06vw,18px);
-  line-height:1.65;
+  width:min(620px,100%);
+  margin-top:clamp(30px,3vw,46px);
+  font-size:clamp(16px,1.12vw,18px);
+  line-height:1.62;
   letter-spacing:-.01em;
 }
-.description p{margin:0 0 .38em}
+.description p{margin:0 0 .42em}
 .description .oem{
   margin-top:1.15em;
   font-weight:700;
   letter-spacing:.01em;
 }
 .footer{
-  width:min(76vw,1180px);
-  margin:clamp(92px,10vw,160px) auto 0;
-  padding-top:22px;
+  width:min(76vw,1100px);
+  margin:clamp(105px,12vw,190px) auto 0;
+  padding-top:24px;
   border-top:1px solid var(--line);
   display:flex;
   justify-content:space-between;
@@ -181,28 +208,38 @@ a{color:inherit}
 .footer a:hover{opacity:.55}
 @media(max-width:900px){
   .shell{padding-left:18px;padding-right:18px}
-  .topbar{min-height:70px}
-  .hero{padding-top:28px}
-  .page-title,.product-visual,.product-info,.footer{width:100%}
+  .topbar{min-height:68px}
+  .hero,.product-info,.footer{width:100%}
+  .hero{padding-top:20px}
   .page-title{
-    margin-bottom:24px;
-    font-size:clamp(3.5rem,16vw,6.8rem);
+    margin-bottom:18px;
+    font-size:clamp(2.8rem,14vw,5rem);
     white-space:normal;
   }
-  .product-visual{aspect-ratio:4/5}
-  .product-info{
-    grid-template-columns:1fr;
-    gap:24px;
-    padding-top:24px;
+  .product-visual{
+    height:auto;
+    min-height:0;
+    aspect-ratio:4/5;
   }
-  .product-title{max-width:none;font-size:clamp(2.8rem,11vw,5rem)}
-  .description{padding-top:0;font-size:16px}
+  .hero-meta{
+    grid-template-columns:34px 1fr;
+    row-gap:7px;
+  }
+  .hero-meta span:last-child{grid-column:2}
+  .product-info{
+    margin-top:70px;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  .index{padding-top:0}
+  .product-title{font-size:clamp(2.65rem,11.5vw,4.8rem)}
+  .description{margin-top:26px;font-size:16px}
 }
 @media(max-width:560px){
-  .hero{padding-top:20px}
-  .page-title{font-size:clamp(3rem,17vw,4.8rem)}
-  .product-info{padding-top:21px}
-  .footer{margin-top:82px;align-items:flex-start;flex-direction:column}
+  .hero{padding-top:14px}
+  .page-title{font-size:clamp(2.55rem,15vw,4.2rem)}
+  .product-info{margin-top:58px}
+  .footer{margin-top:88px;align-items:flex-start;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important}
@@ -225,17 +262,24 @@ a{color:inherit}
       <img class="image-secondary" src="assets/embedded-4db0bce3bc9649ae.jpg" alt="LABWRK Domlagerabdeckung montiert im BMW Motorraum">
     </div>
 
-    <section class="product-info" aria-label="Produktinformationen">
-      <div>
-        <h2 class="product-title">DOMLAGERABDECKUNG.</h2>
-        <div class="compatibility">BMW E60 · E61 · E63 · E64</div>
-      </div>
+    <div class="hero-meta" aria-label="Produktübersicht">
+      <span>01</span>
+      <strong>Domlagerabdeckung.</strong>
+      <span>BMW E60 · E61 · E63 · E64</span>
+    </div>
+  </section>
+
+  <section class="product-info" aria-label="Produktinformationen">
+    <div class="index">01 / 01</div>
+    <div class="product-copy">
+      <h2 class="product-title">DOMLAGERABDECKUNG.</h2>
+      <div class="compatibility">BMW E60 · E61 · E63 · E64</div>
       <div class="description">
         <p>Abdeckung für den sichtbaren Domlagerbereich.</p>
         <p>Passend für BMW E60, E61, E63 und E64.</p>
         <p class="oem">OEM+ Optik</p>
       </div>
-    </section>
+    </div>
   </section>
 
   <footer class="footer">

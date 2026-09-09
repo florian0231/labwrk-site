@@ -11,48 +11,90 @@
 (async()=>{
   try{
     const html=await fetch('/products/legacy.html',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.text()});
-    const extra=`<style id="labwrk-products-v23-fix">
+    const extra=`<style id="labwrk-products-v24-fit">
+:root{--labwrk-page:#ECEBE7;}
+*{box-sizing:border-box;}
 html,body{
   width:100%!important;
-  height:auto!important;
-  min-height:100%!important;
+  margin:0!important;
+  background:var(--labwrk-page)!important;
   overflow-x:hidden!important;
-  overflow-y:auto!important;
 }
-body{
-  min-height:100svh!important;
-  position:relative!important;
+body{position:relative!important;}
+main,header,footer,section,article,nav{max-width:100%!important;}
+img,video,svg{max-width:100%!important;}
+h1,h2,h3{max-width:100%!important;overflow-wrap:anywhere!important;}
+
+/* Desktop: one complete product screen, no scrolling */
+@media(min-width:901px){
+  html,body{
+    height:100svh!important;
+    min-height:100svh!important;
+    overflow:hidden!important;
+  }
+  body{height:100svh!important;}
+  main{
+    width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+  h1{
+    font-size:clamp(5rem,8.7vw,8.7rem)!important;
+    line-height:.78!important;
+    letter-spacing:-.055em!important;
+    margin-top:0!important;
+    margin-bottom:clamp(12px,1.6vh,22px)!important;
+  }
+  h2{
+    font-size:clamp(2.35rem,4.2vw,4.4rem)!important;
+    line-height:.88!important;
+    margin-top:clamp(5px,.7vh,10px)!important;
+    margin-bottom:clamp(5px,.7vh,10px)!important;
+  }
+  .labwrk-product-photo{
+    display:block!important;
+    width:100%!important;
+    height:min(35svh,370px)!important;
+    max-height:min(35svh,370px)!important;
+    object-fit:contain!important;
+    background:transparent!important;
+    border:0!important;
+    outline:0!important;
+    box-shadow:none!important;
+  }
+  .labwrk-media-parent{
+    padding:0!important;
+    background:transparent!important;
+    border:0!important;
+    outline:0!important;
+    box-shadow:none!important;
+  }
+  .labwrk-media-shell{
+    background:transparent!important;
+    border-color:transparent!important;
+    outline:0!important;
+    box-shadow:none!important;
+  }
 }
-main{
-  width:100%!important;
-  max-width:100%!important;
-  height:auto!important;
-  min-height:100svh!important;
-  overflow:visible!important;
-}
-header,footer,section,article,nav{
-  max-width:100%!important;
-}
-img,video,svg{
-  max-width:100%!important;
-}
-h1,h2,h3{
-  max-width:100%!important;
-  overflow-wrap:anywhere!important;
-}
-h1{
-  font-size:clamp(4rem,14vw,12rem)!important;
-  line-height:.84!important;
-}
-h2{
-  font-size:clamp(2.75rem,8.6vw,7rem)!important;
-  line-height:.9!important;
-}
+
+/* Tablet / mobile stays naturally scrollable */
 @media(max-width:900px){
-  body{overflow-y:auto!important;}
-  main{padding-left:max(18px,env(safe-area-inset-left))!important;padding-right:max(18px,env(safe-area-inset-right))!important;}
-  h1{font-size:clamp(3.25rem,18vw,7rem)!important;}
-  h2{font-size:clamp(2.4rem,12vw,5rem)!important;}
+  html,body{height:auto!important;min-height:100%!important;overflow-y:auto!important;}
+  body{min-height:100svh!important;}
+  main{
+    width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+    min-height:100svh!important;
+    overflow:visible!important;
+    padding-left:max(18px,env(safe-area-inset-left))!important;
+    padding-right:max(18px,env(safe-area-inset-right))!important;
+  }
+  h1{font-size:clamp(3.25rem,18vw,7rem)!important;line-height:.84!important;}
+  h2{font-size:clamp(2.4rem,12vw,5rem)!important;line-height:.9!important;}
   img{height:auto!important;object-fit:contain!important;}
 }
 @media(max-width:560px){
@@ -60,6 +102,70 @@ h2{
   h2{font-size:clamp(2.2rem,13vw,4.2rem)!important;letter-spacing:-.045em!important;}
 }
 </style>
+<script id="labwrk-products-layout">
+(()=>{
+  let fitTimer;
+
+  const resetDesktopTweaks=()=>{
+    const main=document.querySelector('main');
+    if(main){main.style.removeProperty('zoom');main.style.removeProperty('transform');}
+  };
+
+  const markProductMedia=()=>{
+    document.querySelectorAll('.labwrk-product-photo').forEach(el=>el.classList.remove('labwrk-product-photo'));
+    document.querySelectorAll('.labwrk-media-parent').forEach(el=>el.classList.remove('labwrk-media-parent'));
+    document.querySelectorAll('.labwrk-media-shell').forEach(el=>el.classList.remove('labwrk-media-shell'));
+
+    if(window.innerWidth<=900)return;
+
+    [...document.images].forEach(img=>{
+      /* Only large photographic assets; icons/logo stay untouched. */
+      if(img.naturalWidth<500 || img.naturalHeight<300)return;
+      img.classList.add('labwrk-product-photo');
+      const parent=img.parentElement;
+      if(parent)parent.classList.add('labwrk-media-parent');
+      let shell=parent;
+      for(let depth=0;depth<3 && shell && shell!==document.body && shell!==document.documentElement;depth++,shell=shell.parentElement){
+        shell.classList.add('labwrk-media-shell');
+      }
+    });
+  };
+
+  const fitDesktop=()=>{
+    clearTimeout(fitTimer);
+    fitTimer=setTimeout(()=>{
+      const main=document.querySelector('main');
+      if(!main)return;
+      resetDesktopTweaks();
+      if(window.innerWidth<=900)return;
+
+      /* Give layout/images two frames to settle, then fit the complete page. */
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        const naturalHeight=Math.max(main.scrollHeight,main.getBoundingClientRect().height);
+        const available=Math.max(1,window.innerHeight-4);
+        if(naturalHeight>available){
+          const scale=Math.min(1,available/naturalHeight);
+          main.style.setProperty('zoom',scale.toFixed(4));
+        }
+      }));
+    },50);
+  };
+
+  const apply=()=>{
+    markProductMedia();
+    fitDesktop();
+  };
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});
+  else apply();
+
+  window.addEventListener('load',apply,{once:true});
+  window.addEventListener('resize',apply,{passive:true});
+  document.querySelectorAll('img').forEach(img=>{
+    if(!img.complete)img.addEventListener('load',apply,{once:true});
+  });
+})();
+<\/script>
 <script id="labwrk-tab-animation">
 (()=>{const titles=['Products — LABWRK.','LABWRK. / AUTOMOTIVE DETAILS'];let i=0;setInterval(()=>{i=(i+1)%titles.length;document.title=titles[i]},2400);const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d');let t=0;let l=document.querySelector('link[rel="icon"]');if(!l){l=document.createElement('link');l.rel='icon';document.head.appendChild(l)}setInterval(()=>{t+=.18;const p=(Math.sin(t)+1)/2;x.clearRect(0,0,64,64);x.fillStyle='#111';x.beginPath();x.arc(32,32,17+4*p,0,Math.PI*2);x.fill();x.fillStyle='#fff';x.font='bold 18px Arial';x.textAlign='center';x.textBaseline='middle';x.fillText('L.',32,33);l.href=c.toDataURL('image/png')},160)})();
 <\/script>`;

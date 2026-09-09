@@ -11,159 +11,242 @@
 (async()=>{
   try{
     const html=await fetch('/products/legacy.html',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.text()});
-    const extra=`<style id="labwrk-products-v24-fit">
-:root{--labwrk-page:#ECEBE7;}
-*{box-sizing:border-box;}
-html,body{
-  width:100%!important;
-  margin:0!important;
-  background:var(--labwrk-page)!important;
-  overflow-x:hidden!important;
+    const extra=`<style id="labwrk-products-v25-editorial">
+:root{
+  --labwrk-page:#ECEBE7;
+  --labwrk-ink:#0F1115;
+  --labwrk-muted:#8E959F;
 }
-body{position:relative!important;}
-main,header,footer,section,article,nav{max-width:100%!important;}
-img,video,svg{max-width:100%!important;}
-h1,h2,h3{max-width:100%!important;overflow-wrap:anywhere!important;}
 
-/* Desktop: one complete product screen, no scrolling */
-@media(min-width:901px){
-  html,body{
-    height:100svh!important;
-    min-height:100svh!important;
-    overflow:hidden!important;
-  }
-  body{height:100svh!important;}
-  main{
-    width:100%!important;
-    max-width:100%!important;
-    height:auto!important;
-    min-height:0!important;
-    max-height:none!important;
-    overflow:visible!important;
-  }
+*{box-sizing:border-box;}
+html{
+  width:100%!important;
+  height:auto!important;
+  min-height:100%!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  background:var(--labwrk-page)!important;
+}
+body{
+  width:100%!important;
+  height:auto!important;
+  min-height:100svh!important;
+  margin:0!important;
+  overflow-x:hidden!important;
+  overflow-y:visible!important;
+  background:var(--labwrk-page)!important;
+  color:var(--labwrk-ink)!important;
+}
+main{
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:100svh!important;
+  max-height:none!important;
+  overflow:visible!important;
+  padding-bottom:clamp(90px,12vw,190px)!important;
+}
+
+/* Big editorial title */
+h1{
+  max-width:none!important;
+  margin:clamp(26px,3.2vw,58px) clamp(22px,5vw,84px) 0!important;
+  font-size:clamp(5.8rem,14vw,14rem)!important;
+  line-height:.76!important;
+  letter-spacing:-.065em!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+}
+
+h2{
+  max-width:14ch!important;
+  font-size:clamp(3.2rem,6.7vw,7.4rem)!important;
+  line-height:.86!important;
+  letter-spacing:-.052em!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+}
+
+img,video,svg{max-width:100%!important;}
+
+/* Neutralise old image cards / frames */
+.labwrk-media-parent,
+.labwrk-media-shell{
+  background:transparent!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+.labwrk-media-parent{
+  padding:0!important;
+  margin:0!important;
+}
+
+.labwrk-product-photo{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+
+/* Main product gallery: intentionally oversized and asymmetric */
+.labwrk-gallery{
+  width:calc(100% - clamp(44px,10vw,168px))!important;
+  max-width:none!important;
+  margin:clamp(72px,8vw,140px) auto clamp(82px,9vw,160px)!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.38fr) minmax(0,.92fr)!important;
+  gap:clamp(22px,3.2vw,58px)!important;
+  align-items:start!important;
+  overflow:visible!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+
+.labwrk-gallery > *{
+  min-width:0!important;
+  max-width:none!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  padding:0!important;
+}
+
+.labwrk-gallery .labwrk-product-photo{
+  height:auto!important;
+  object-fit:cover!important;
+}
+
+.labwrk-gallery > :first-child .labwrk-product-photo{
+  min-height:clamp(520px,68vw,940px)!important;
+  max-height:940px!important;
+  object-fit:cover!important;
+}
+
+.labwrk-gallery > :nth-child(2){
+  margin-top:clamp(52px,7vw,118px)!important;
+}
+
+.labwrk-gallery > :nth-child(2) .labwrk-product-photo{
+  min-height:clamp(460px,56vw,790px)!important;
+  max-height:790px!important;
+  object-fit:cover!important;
+}
+
+/* Give lower product information more editorial breathing room */
+.labwrk-product-copy{
+  width:min(1180px,calc(100% - clamp(44px,10vw,168px)))!important;
+  margin:0 auto!important;
+}
+
+@media(max-width:900px){
   h1{
-    font-size:clamp(5rem,8.7vw,8.7rem)!important;
-    line-height:.78!important;
-    letter-spacing:-.055em!important;
-    margin-top:0!important;
-    margin-bottom:clamp(12px,1.6vh,22px)!important;
+    margin:28px 18px 0!important;
+    font-size:clamp(4.1rem,18vw,8rem)!important;
+    line-height:.8!important;
   }
   h2{
-    font-size:clamp(2.35rem,4.2vw,4.4rem)!important;
-    line-height:.88!important;
-    margin-top:clamp(5px,.7vh,10px)!important;
-    margin-bottom:clamp(5px,.7vh,10px)!important;
+    font-size:clamp(2.8rem,12vw,5.6rem)!important;
+    max-width:100%!important;
   }
-  .labwrk-product-photo{
-    display:block!important;
+  .labwrk-gallery{
+    width:calc(100% - 36px)!important;
+    margin:58px auto 72px!important;
+    grid-template-columns:1fr!important;
+    gap:24px!important;
+  }
+  .labwrk-gallery > :nth-child(2){margin-top:0!important;}
+  .labwrk-gallery > :first-child .labwrk-product-photo,
+  .labwrk-gallery > :nth-child(2) .labwrk-product-photo{
+    min-height:0!important;
+    max-height:none!important;
     width:100%!important;
-    height:min(35svh,370px)!important;
-    max-height:min(35svh,370px)!important;
+    height:auto!important;
     object-fit:contain!important;
-    background:transparent!important;
-    border:0!important;
-    outline:0!important;
-    box-shadow:none!important;
   }
-  .labwrk-media-parent{
-    padding:0!important;
-    background:transparent!important;
-    border:0!important;
-    outline:0!important;
-    box-shadow:none!important;
-  }
-  .labwrk-media-shell{
-    background:transparent!important;
-    border-color:transparent!important;
-    outline:0!important;
-    box-shadow:none!important;
+  .labwrk-product-copy{
+    width:calc(100% - 36px)!important;
   }
 }
 
-/* Tablet / mobile stays naturally scrollable */
-@media(max-width:900px){
-  html,body{height:auto!important;min-height:100%!important;overflow-y:auto!important;}
-  body{min-height:100svh!important;}
-  main{
-    width:100%!important;
-    max-width:100%!important;
-    height:auto!important;
-    min-height:100svh!important;
-    overflow:visible!important;
-    padding-left:max(18px,env(safe-area-inset-left))!important;
-    padding-right:max(18px,env(safe-area-inset-right))!important;
-  }
-  h1{font-size:clamp(3.25rem,18vw,7rem)!important;line-height:.84!important;}
-  h2{font-size:clamp(2.4rem,12vw,5rem)!important;line-height:.9!important;}
-  img{height:auto!important;object-fit:contain!important;}
-}
 @media(max-width:560px){
-  h1{font-size:clamp(2.9rem,19vw,5rem)!important;letter-spacing:-.055em!important;}
-  h2{font-size:clamp(2.2rem,13vw,4.2rem)!important;letter-spacing:-.045em!important;}
+  main{padding-bottom:88px!important;}
+  h1{font-size:clamp(3.5rem,19vw,5.5rem)!important;letter-spacing:-.06em!important;}
+  h2{font-size:clamp(2.5rem,13vw,4.4rem)!important;}
 }
 </style>
-<script id="labwrk-products-layout">
+<script id="labwrk-products-editorial-layout">
 (()=>{
-  let fitTimer;
-
-  const resetDesktopTweaks=()=>{
-    const main=document.querySelector('main');
-    if(main){main.style.removeProperty('zoom');main.style.removeProperty('transform');}
-  };
-
-  const markProductMedia=()=>{
+  const clearClasses=()=>{
     document.querySelectorAll('.labwrk-product-photo').forEach(el=>el.classList.remove('labwrk-product-photo'));
     document.querySelectorAll('.labwrk-media-parent').forEach(el=>el.classList.remove('labwrk-media-parent'));
     document.querySelectorAll('.labwrk-media-shell').forEach(el=>el.classList.remove('labwrk-media-shell'));
-
-    if(window.innerWidth<=900)return;
-
-    [...document.images].forEach(img=>{
-      /* Only large photographic assets; icons/logo stay untouched. */
-      if(img.naturalWidth<500 || img.naturalHeight<300)return;
-      img.classList.add('labwrk-product-photo');
-      const parent=img.parentElement;
-      if(parent)parent.classList.add('labwrk-media-parent');
-      let shell=parent;
-      for(let depth=0;depth<3 && shell && shell!==document.body && shell!==document.documentElement;depth++,shell=shell.parentElement){
-        shell.classList.add('labwrk-media-shell');
-      }
-    });
+    document.querySelectorAll('.labwrk-gallery').forEach(el=>el.classList.remove('labwrk-gallery'));
+    document.querySelectorAll('.labwrk-product-copy').forEach(el=>el.classList.remove('labwrk-product-copy'));
   };
 
-  const fitDesktop=()=>{
-    clearTimeout(fitTimer);
-    fitTimer=setTimeout(()=>{
-      const main=document.querySelector('main');
-      if(!main)return;
-      resetDesktopTweaks();
-      if(window.innerWidth<=900)return;
-
-      /* Give layout/images two frames to settle, then fit the complete page. */
-      requestAnimationFrame(()=>requestAnimationFrame(()=>{
-        const naturalHeight=Math.max(main.scrollHeight,main.getBoundingClientRect().height);
-        const available=Math.max(1,window.innerHeight-4);
-        if(naturalHeight>available){
-          const scale=Math.min(1,available/naturalHeight);
-          main.style.setProperty('zoom',scale.toFixed(4));
-        }
-      }));
-    },50);
+  const commonAncestor=(a,b)=>{
+    const seen=new Set();
+    let n=a;
+    while(n&&n!==document.body){seen.add(n);n=n.parentElement;}
+    n=b;
+    while(n&&n!==document.body){if(seen.has(n))return n;n=n.parentElement;}
+    return null;
   };
 
   const apply=()=>{
-    markProductMedia();
-    fitDesktop();
+    clearClasses();
+
+    const photos=[...document.images].filter(img=>img.naturalWidth>=500&&img.naturalHeight>=300);
+    photos.forEach(img=>{
+      img.classList.add('labwrk-product-photo');
+      const p=img.parentElement;
+      if(p)p.classList.add('labwrk-media-parent');
+      let shell=p;
+      for(let i=0;i<3&&shell&&shell!==document.body&&shell!==document.documentElement;i++,shell=shell.parentElement){
+        shell.classList.add('labwrk-media-shell');
+      }
+    });
+
+    if(photos.length>=2){
+      const common=commonAncestor(photos[0],photos[1]);
+      if(common&&common!==document.querySelector('main')){
+        common.classList.add('labwrk-gallery');
+      }else{
+        /* If the old markup has no dedicated gallery wrapper, use the closest
+           two media wrappers and create a visual grid on their nearest safe parent. */
+        const p1=photos[0].parentElement;
+        const p2=photos[1].parentElement;
+        const fallback=commonAncestor(p1,p2);
+        if(fallback&&fallback!==document.body)fallback.classList.add('labwrk-gallery');
+      }
+    }
+
+    /* Mark the first substantial text block after the gallery for calmer width. */
+    const gallery=document.querySelector('.labwrk-gallery');
+    if(gallery){
+      let next=gallery.nextElementSibling;
+      while(next&&next.tagName==='SCRIPT')next=next.nextElementSibling;
+      if(next)next.classList.add('labwrk-product-copy');
+    }
   };
 
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});
-  else apply();
+  const boot=()=>{
+    apply();
+    document.querySelectorAll('img').forEach(img=>{
+      if(!img.complete)img.addEventListener('load',apply,{once:true});
+    });
+    setTimeout(apply,250);
+    setTimeout(apply,900);
+  };
 
-  window.addEventListener('load',apply,{once:true});
-  window.addEventListener('resize',apply,{passive:true});
-  document.querySelectorAll('img').forEach(img=>{
-    if(!img.complete)img.addEventListener('load',apply,{once:true});
-  });
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});
+  else boot();
+  window.addEventListener('resize',()=>{clearTimeout(window.__labwrkResize);window.__labwrkResize=setTimeout(apply,120)},{passive:true});
 })();
 <\/script>
 <script id="labwrk-tab-animation">

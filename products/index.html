@@ -3,283 +3,371 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ECEBE7">
+<meta name="theme-color" content="#1D161F">
 <title>Products — LABWRK.</title>
 <link rel="icon" type="image/png" href="../favicon.png">
 <style>
 :root{
-  --bg:#ECEBE7;
-  --ink:#0F1115;
-  --muted:#8E959F;
-  --line:rgba(15,17,21,.18);
+  --bg:#1D161F;
+  --fg:#F2EEF4;
+  --muted:#948A98;
+  --line:rgba(242,238,244,.12);
 }
+
 *{box-sizing:border-box}
-html{background:var(--bg);scroll-behavior:smooth}
+html{scroll-behavior:smooth;background:var(--bg)}
 body{
   margin:0;
   min-height:100vh;
   overflow-x:hidden;
   background:var(--bg);
-  color:var(--ink);
+  color:var(--fg);
   font-family:Arial,Helvetica,sans-serif;
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit}
-.page{
-  width:min(100%,1800px);
+
+.shell{
+  width:min(100%,1900px);
   margin:0 auto;
-  padding:0 clamp(22px,4.4vw,76px) clamp(96px,10vw,170px);
+  padding:0 clamp(24px,5vw,82px) clamp(90px,9vw,150px);
 }
+
 .topbar{
-  height:clamp(68px,7vw,102px);
+  min-height:clamp(76px,7vw,106px);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  border-bottom:1px solid var(--line);
-  font-size:11px;
+}
+.brand,
+.section-label{
+  margin:0;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.brand{
+  font-size:clamp(13px,1.05vw,17px);
+  letter-spacing:-.035em;
+  text-decoration:none;
+}
+.section-label{
+  color:var(--muted);
+  font-size:clamp(8px,.62vw,10px);
+  letter-spacing:.18em;
+}
+
+.hero{
+  padding-top:clamp(76px,9vw,145px);
+}
+
+.product-visual{
+  position:relative;
+  width:100%;
+  height:clamp(500px,57vw,850px);
+  overflow:hidden;
+  background:#151117;
+  isolation:isolate;
+  cursor:pointer;
+}
+.product-visual::after{
+  content:"VIEW / HOVER";
+  position:absolute;
+  right:18px;
+  bottom:16px;
+  z-index:4;
+  padding:7px 9px;
+  color:rgba(242,238,244,.72);
+  background:rgba(29,22,31,.35);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.14em;
+  opacity:0;
+  transition:opacity .25s ease;
+  pointer-events:none;
+}
+.product-visual:hover::after{opacity:1}
+.product-visual img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  border:0;
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);
+  will-change:opacity,transform;
+}
+.product-visual .image-primary{
+  opacity:1;
+  z-index:1;
+}
+.product-visual .image-secondary{
+  opacity:0;
+  z-index:2;
+}
+@media(hover:hover) and (pointer:fine){
+  .product-visual:hover .image-primary{opacity:0;transform:scale(1.018)}
+  .product-visual:hover .image-secondary{opacity:1;transform:scale(1.018)}
+}
+.product-visual.is-alt .image-primary{opacity:0;transform:scale(1.012)}
+.product-visual.is-alt .image-secondary{opacity:1;transform:scale(1.012)}
+
+.hero-meta{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:50px minmax(0,1fr) auto;
+  gap:18px;
+  align-items:center;
+  color:var(--muted);
+  font-size:9px;
   font-weight:700;
   letter-spacing:.13em;
   text-transform:uppercase;
 }
-.topbar a{text-decoration:none}
-.hero{
-  padding-top:clamp(34px,4.5vw,74px);
-}
-.eyebrow{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  color:var(--muted);
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-}
-.title{
-  margin:clamp(18px,2.5vw,36px) 0 0;
-  font-size:clamp(5.4rem,13vw,13.8rem);
-  line-height:.76;
-  letter-spacing:-.07em;
-  font-weight:900;
-  white-space:nowrap;
-}
-.gallery{
-  margin-top:clamp(68px,8vw,132px);
+.hero-meta strong{color:var(--fg);font-weight:700}
+
+.product-info{
+  margin-top:clamp(105px,12vw,205px);
   display:grid;
-  grid-template-columns:minmax(0,1.46fr) minmax(0,.94fr);
-  gap:clamp(20px,3vw,52px);
-  align-items:stretch;
-}
-.media{
-  position:relative;
-  min-width:0;
-  height:clamp(520px,56vw,820px);
-  overflow:hidden;
-  background:transparent;
-}
-.media img{
-  display:block;
-  width:100%;
-  height:100%;
-  border:0;
-  outline:0;
-  box-shadow:none;
-}
-.media--installed img{
-  object-fit:cover;
-  object-position:center;
-}
-.media--product{
-  display:grid;
-  place-items:center;
-}
-.media--product img{
-  object-fit:contain;
-  object-position:center;
-}
-.product{
-  margin-top:clamp(92px,10vw,170px);
-  display:grid;
-  grid-template-columns:minmax(0,.28fr) minmax(0,1fr);
-  gap:clamp(30px,6vw,110px);
+  grid-template-columns:minmax(80px,.28fr) minmax(0,1fr);
+  gap:clamp(28px,5vw,90px);
   align-items:start;
 }
-.product-index{
-  padding-top:.55em;
+.index{
+  padding-top:.72em;
   color:var(--muted);
-  font-size:10px;
+  font-size:9px;
   font-weight:700;
-  letter-spacing:.18em;
+  letter-spacing:.15em;
 }
 .product-title{
   margin:0;
-  max-width:10ch;
-  font-size:clamp(3.8rem,7.2vw,8rem);
-  line-height:.84;
-  letter-spacing:-.055em;
+  max-width:11ch;
+  font-size:clamp(3.2rem,6.4vw,7rem);
+  line-height:.86;
+  letter-spacing:-.06em;
   font-weight:900;
+  text-transform:uppercase;
 }
 .compatibility{
-  margin-top:clamp(22px,2.6vw,38px);
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-.description{
-  width:min(620px,100%);
-  margin-top:clamp(34px,4vw,58px);
-  font-size:clamp(16px,1.35vw,20px);
-  line-height:1.55;
-  letter-spacing:-.01em;
-}
-.description p{margin:0 0 .55em}
-.meta{
-  margin-top:clamp(56px,6vw,92px);
-  padding:16px 0;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:20px;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
+  margin-top:clamp(22px,2vw,34px);
+  color:var(--muted);
   font-size:10px;
-  font-weight:700;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-.meta span:nth-child(2),.meta span:nth-child(3){text-align:right}
-.back{
-  display:inline-block;
-  margin-top:clamp(110px,13vw,210px);
-  text-decoration:none;
-  font-size:11px;
   font-weight:700;
   letter-spacing:.13em;
   text-transform:uppercase;
-  transition:transform .18s ease,opacity .18s ease;
 }
-.back:hover{transform:translateX(-4px);opacity:.6}
-.loading{
-  min-height:48vh;
+.description{
+  width:min(630px,100%);
+  margin-top:clamp(42px,4vw,68px);
+  font-size:clamp(16px,1.25vw,19px);
+  line-height:1.6;
+  letter-spacing:-.012em;
+}
+.description p{margin:0 0 .35em}
+
+.specs{
+  margin-top:clamp(64px,6vw,100px);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.spec-row{
+  min-height:48px;
   display:grid;
-  place-items:center;
+  grid-template-columns:1.6fr 1fr;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.spec-row:last-child{border-bottom:0}
+.spec-row span:last-child{text-align:right;color:var(--muted)}
+
+.detail{
+  width:min(76%,1200px);
+  margin:clamp(120px,14vw,230px) 0 0 auto;
+}
+.detail-label{
+  margin:0 0 14px;
   color:var(--muted);
-  font-size:10px;
+  font-size:8px;
   font-weight:700;
   letter-spacing:.16em;
   text-transform:uppercase;
 }
-@media(max-width:900px){
-  .page{padding-left:18px;padding-right:18px}
-  .title{
-    font-size:clamp(4rem,18vw,8rem);
-    white-space:normal;
-  }
-  .gallery{
-    margin-top:56px;
-    grid-template-columns:1fr;
-    gap:22px;
-  }
-  .media{height:auto;min-height:0}
-  .media img{height:auto;max-height:none}
-  .media--installed img,.media--product img{object-fit:contain}
-  .product{
-    margin-top:82px;
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-  .product-index{padding-top:0}
-  .product-title{max-width:none;font-size:clamp(3.1rem,14vw,5.8rem)}
-  .meta{grid-template-columns:1fr;gap:10px}
-  .meta span:nth-child(2),.meta span:nth-child(3){text-align:left}
+.detail-visual{
+  position:relative;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  background:#151117;
 }
+.detail-visual img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:transform .8s cubic-bezier(.22,.61,.36,1),opacity .45s ease;
+}
+.detail-visual:hover img{transform:scale(1.012)}
+
+.footer{
+  margin-top:clamp(125px,15vw,240px);
+  padding-top:24px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  color:var(--muted);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.footer a{text-decoration:none;color:var(--fg);transition:opacity .2s ease}
+.footer a:hover{opacity:.55}
+
+.loading{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:var(--muted);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+@media(max-width:900px){
+  .shell{padding-left:18px;padding-right:18px}
+  .hero{padding-top:52px}
+  .product-visual{height:clamp(420px,86vw,680px)}
+  .product-info{grid-template-columns:1fr;gap:20px;margin-top:90px}
+  .index{padding-top:0}
+  .product-title{max-width:none;font-size:clamp(2.9rem,13vw,5.5rem)}
+  .detail{width:100%;margin-top:110px}
+}
+
 @media(max-width:560px){
-  .topbar{height:64px}
-  .hero{padding-top:28px}
-  .title{font-size:clamp(3.35rem,19vw,5.5rem)}
-  .gallery{margin-top:46px}
-  .product{margin-top:68px}
+  .topbar{min-height:68px}
+  .hero{padding-top:36px}
+  .product-visual{height:118vw;max-height:620px}
+  .hero-meta{grid-template-columns:32px 1fr;row-gap:8px}
+  .hero-meta span:last-child{grid-column:2}
+  .product-info{margin-top:74px}
   .description{font-size:16px}
-  .back{margin-top:92px}
+  .detail{margin-top:92px}
+  .footer{margin-top:110px;align-items:flex-start;flex-direction:column}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .product-visual img,.detail-visual img{transition:none!important}
 }
 </style>
 </head>
 <body>
-<main class="page">
+<main class="shell">
   <nav class="topbar">
-    <a href="../">LABWRK.</a>
-    <span>Products</span>
+    <a class="brand" href="../">LABWRK.</a>
+    <span class="section-label">Products</span>
   </nav>
 
   <section class="hero">
-    <div class="eyebrow">
-      <span>Automotive Details</span>
-      <span>001</span>
+    <div id="heroVisual" class="product-visual" role="button" tabindex="0" aria-label="Produktbild wechseln">
+      <div class="loading">Loading product</div>
     </div>
-    <h1 class="title">PRODUCTS.</h1>
+    <div class="hero-meta">
+      <span>01</span>
+      <strong>Domlagerabdeckung.</strong>
+      <span>BMW E60 · E61 · E63 · E64</span>
+    </div>
   </section>
 
-  <section id="gallery" class="gallery" aria-label="Produktbilder">
-    <div class="loading">Loading product images</div>
-  </section>
-
-  <section class="product">
-    <div class="product-index">01</div>
+  <section class="product-info">
+    <div class="index">01 / 01</div>
     <div>
-      <h2 class="product-title">DOMLAGERABDECKUNG.</h2>
+      <h1 class="product-title">DOMLAGERABDECKUNG.</h1>
       <div class="compatibility">BMW E60 · E61 · E63 · E64</div>
       <div class="description">
         <p>Abdeckung für den sichtbaren Domlagerbereich.</p>
         <p>Passend für BMW E60, E61, E63 und E64.</p>
         <p>OEM+ Optik und saubere Integration in den Motorraum.</p>
       </div>
-      <div class="meta">
-        <span>BMW E60 · E61 · E63 · E64</span>
-        <span>Black</span>
-        <span>Pair</span>
+
+      <div class="specs" aria-label="Produktdetails">
+        <div class="spec-row"><span>Compatibility</span><span>BMW E60 · E61 · E63 · E64</span></div>
+        <div class="spec-row"><span>Finish</span><span>Black</span></div>
+        <div class="spec-row"><span>Set</span><span>Pair</span></div>
       </div>
     </div>
   </section>
 
-  <a class="back" href="../">← Back to LABWRK.</a>
+  <section class="detail">
+    <p class="detail-label">Installed / Detail 001</p>
+    <div id="detailVisual" class="detail-visual"></div>
+  </section>
+
+  <footer class="footer">
+    <a href="../">← Back to LABWRK.</a>
+    <span>Automotive Details / 2026</span>
+  </footer>
 </main>
 
 <script>
 (async()=>{
-  const gallery=document.getElementById('gallery');
+  const hero=document.getElementById('heroVisual');
+  const detail=document.getElementById('detailVisual');
+
+  const probe=src=>new Promise(resolve=>{
+    const img=new Image();
+    img.onload=()=>resolve({src,w:img.naturalWidth,h:img.naturalHeight});
+    img.onerror=()=>resolve(null);
+    img.src=src;
+  });
+
   try{
-    const legacy=await fetch('./legacy.html',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.text()});
+    const legacy=await fetch('./legacy.html',{cache:'no-store'}).then(r=>{
+      if(!r.ok)throw new Error(r.status);
+      return r.text();
+    });
     const doc=new DOMParser().parseFromString(legacy,'text/html');
     const sources=[...doc.images].map(img=>img.getAttribute('src')).filter(Boolean);
+    const tested=(await Promise.all(sources.slice(0,16).map(probe))).filter(Boolean);
+    const large=tested.filter(x=>x.w>=500&&x.h>=300);
+    if(large.length<2)throw new Error('not enough product images');
 
-    const probe=src=>new Promise(resolve=>{
-      const img=new Image();
-      img.onload=()=>resolve({src,w:img.naturalWidth,h:img.naturalHeight});
-      img.onerror=()=>resolve(null);
-      img.src=src;
+    /* V13 logic: clean product shot first, installed image on hover/tap. */
+    const installed=large[0];
+    const product=large[1];
+
+    hero.innerHTML=`
+      <img class="image-primary" src="${product.src}" alt="LABWRK Domlagerabdeckung Produktansicht">
+      <img class="image-secondary" src="${installed.src}" alt="LABWRK Domlagerabdeckung im eingebauten Zustand">
+    `;
+    detail.innerHTML=`<img src="${installed.src}" alt="Domlagerabdeckung eingebaut">`;
+
+    const toggle=()=>hero.classList.toggle('is-alt');
+    hero.addEventListener('click',e=>{
+      if(matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+      e.preventDefault();
+      toggle();
     });
-
-    const checked=(await Promise.all(sources.map(probe))).filter(Boolean);
-    const photos=checked.filter(x=>x.w>=500&&x.h>=300).slice(0,2);
-    if(photos.length<2)throw new Error('product images not found');
-
-    gallery.innerHTML='';
-    const installed=document.createElement('figure');
-    installed.className='media media--installed';
-    installed.innerHTML='<img alt="LABWRK Domlagerabdeckung eingebaut">';
-    installed.querySelector('img').src=photos[0].src;
-
-    const product=document.createElement('figure');
-    product.className='media media--product';
-    product.innerHTML='<img alt="LABWRK Domlagerabdeckung Produktansicht">';
-    product.querySelector('img').src=photos[1].src;
-
-    gallery.append(installed,product);
+    hero.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}
+    });
   }catch(err){
-    gallery.innerHTML='<div class="loading">Product images could not be loaded</div>';
+    hero.innerHTML='<div class="loading">Product image unavailable</div>';
   }
 })();
 
+/* Keep the small browser-tab detail from the homepage. */
 (()=>{
   const titles=['Products — LABWRK.','LABWRK. / AUTOMOTIVE DETAILS'];
   let i=0;

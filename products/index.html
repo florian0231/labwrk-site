@@ -3,18 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#201822">
+<meta name="theme-color" content="#ECEBE7">
 <meta name="description" content="LABWRK. Products — Domlager Abdeckung für BMW E60, E61, E63 und E64.">
 <title>Products — LABWRK.</title>
 <link rel="icon" type="image/png" href="../favicon.png">
 
 <style>
 :root {
-  --bg:#201822;
-  --fg:#F2EEF4;
-  --muted:#A69AA9;
-  --muted2:#746A77;
-  --line:rgba(242,238,244,.16);
+  --bg:#ECEBE7;
+  --fg:#0F1115;
+  --muted:#8E99A8;
+  --muted2:#6A587C;
+  --line:rgba(15,17,21,.12);
+  --accent:#6A587C;
 }
 
 * { box-sizing:border-box; }
@@ -25,9 +26,13 @@ html {
 }
 
 body {
+  background:
+    radial-gradient(circle at top left,#f6f5f2 0%,#ecebe7 56%,#e6e4ed 100%);
+}
+
+body {
   margin:0;
   min-height:100vh;
-  background:var(--bg);
   color:var(--fg);
   font-family:Arial,Helvetica,sans-serif;
   -webkit-font-smoothing:antialiased;
@@ -44,10 +49,10 @@ a { color:inherit; }
   justify-content:space-between;
   gap:24px;
   padding:22px 5vw;
-  background:rgba(32,24,34,.88);
+  background:rgba(236,235,231,.82);
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(242,238,244,.05);
+  border-bottom:1px solid rgba(15,17,21,.06);
 }
 
 .home {
@@ -59,7 +64,7 @@ a { color:inherit; }
 }
 
 .section-label {
-  color:var(--muted);
+  color:var(--accent);
   font-size:9px;
   letter-spacing:.18em;
   text-transform:uppercase;
@@ -76,7 +81,7 @@ a { color:inherit; }
 
 .kicker {
   margin:0 0 18px;
-  color:var(--muted);
+  color:var(--accent);
   font-size:9px;
   letter-spacing:.18em;
   text-transform:uppercase;
@@ -104,6 +109,7 @@ a { color:inherit; }
   font-size:clamp(58px,10vw,168px);
   font-weight:500;
   letter-spacing:-.075em;
+  color:var(--accent);
 }
 
 .product {
@@ -128,7 +134,7 @@ a { color:inherit; }
   position:relative;
   overflow:hidden;
   min-height:0;
-  background:#171219;
+  background:#dddbe5;
 }
 
 .media img {
@@ -148,9 +154,9 @@ a { color:inherit; }
   background:
     linear-gradient(
       180deg,
-      #A4A3BF 0%,
-      #AAA9C4 48%,
-      #A7A6C4 100%
+      #C9CCDA 0%,
+      #D8D9E5 45%,
+      #D0D1E1 100%
     );
 }
 
@@ -232,7 +238,8 @@ a { color:inherit; }
 
 .back:hover {
   transform:translateX(-4px);
-  opacity:.82;
+  opacity:1;
+  color:var(--accent);
 }
 
 footer {
@@ -332,9 +339,8 @@ footer {
 
       <div>
         <p class="copy">
-          Abdeckung für den sichtbaren Domlagerbereich. Entwickelt für eine
-          reduzierte, saubere Optik und eine unauffällige Integration in den
-          Motorraum.
+          Abdeckung für den sichtbaren Domlagerbereich. Passend für BMW E60,
+          E61, E63 und E64. Für eine cleane OEM+ Optik im Motorraum.
         </p>
 
         <div class="specs">

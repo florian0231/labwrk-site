@@ -3,28 +3,76 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#201822">
+<meta name="theme-color" content="#ECEBE7">
 <title>LABWRK.</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <style>
-:root{--bg:#201822;--fg:#F2EEF4}
+:root{--bg:#ECEBE7;--fg:#0F1115;--muted:#8E99A8;--accent:#6A587C;--line:rgba(15,17,21,.12)}
 *{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--fg)}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#ECEBE7;color:var(--fg)}
 body{font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+body{
+  position:relative;
+  isolation:isolate;
+}
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:-22%;
+  z-index:-2;
+  pointer-events:none;
+  filter:blur(70px);
+  transform:translate3d(0,0,0);
+}
+body::before{
+  background:
+    radial-gradient(42% 38% at 22% 30%, rgba(106,88,124,.34) 0%, rgba(106,88,124,0) 70%),
+    radial-gradient(46% 42% at 78% 26%, rgba(142,153,168,.40) 0%, rgba(142,153,168,0) 72%),
+    radial-gradient(44% 40% at 52% 78%, rgba(200,183,214,.34) 0%, rgba(200,183,214,0) 72%);
+  animation:labwrkWaveA 16s ease-in-out infinite alternate;
+}
+body::after{
+  z-index:-1;
+  background:
+    radial-gradient(38% 34% at 66% 56%, rgba(172,194,204,.28) 0%, rgba(172,194,204,0) 72%),
+    radial-gradient(36% 36% at 30% 72%, rgba(221,199,208,.28) 0%, rgba(221,199,208,0) 74%);
+  animation:labwrkWaveB 21s ease-in-out infinite alternate;
+}
+.hero{
+  background:rgba(236,235,231,.12);
+  backdrop-filter:saturate(110%);
+  -webkit-backdrop-filter:saturate(110%);
+}
+@keyframes labwrkWaveA{
+  0%{transform:translate3d(-4%,-3%,0) scale(1.02) rotate(-2deg)}
+  35%{transform:translate3d(4%,1%,0) scale(1.08) rotate(1deg)}
+  70%{transform:translate3d(-1%,5%,0) scale(1.05) rotate(2deg)}
+  100%{transform:translate3d(5%,-2%,0) scale(1.10) rotate(-1deg)}
+}
+@keyframes labwrkWaveB{
+  0%{transform:translate3d(5%,2%,0) scale(1.05) rotate(1deg)}
+  50%{transform:translate3d(-5%,-3%,0) scale(1.12) rotate(-2deg)}
+  100%{transform:translate3d(2%,5%,0) scale(1.08) rotate(2deg)}
+}
+@media (prefers-reduced-motion:reduce){
+  body::before,body::after{animation:none}
+}
+
 .hero{width:100%;height:100svh;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
 .brand{display:flex;flex-direction:column;align-items:center;transform:translateY(-2vh)}
 .logo-link{display:block;text-decoration:none}
-.logo{display:block;width:min(760px,78vw);height:auto;user-select:none;-webkit-user-drag:none}
+.logo{display:block;width:min(760px,78vw);height:auto;user-select:none;-webkit-user-drag:none;filter:brightness(0) saturate(100%)}
 .links{display:flex;align-items:center;gap:30px;margin-top:38px}
 .icon-link{width:28px;height:28px;display:grid;place-items:center;color:var(--fg);opacity:.88;text-decoration:none;transition:.16s ease}
-.icon-link:hover{opacity:1;transform:translateY(-2px)}
+.icon-link:hover{opacity:1;transform:translateY(-2px);color:var(--accent)}
 .icon-link svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media (hover:hover) and (pointer:fine){
   html,body,a,button{cursor:none!important}
   .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
-  .cursor-dot{width:6px;height:6px;border-radius:50%;background:var(--fg)}
-  .cursor-ring{width:28px;height:28px;border:1px solid rgba(242,238,244,.75);border-radius:50%;transition:width .16s,height .16s,border-color .16s}
-  .cursor-ring.active{width:54px;height:54px;border-color:rgba(242,238,244,.98)}
+  .cursor-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .cursor-ring{width:28px;height:28px;border:1px solid rgba(106,88,124,.6);border-radius:50%;transition:width .16s,height .16s,border-color .16s,background .16s ease}
+  .cursor-ring.active{width:54px;height:54px;border-color:rgba(106,88,124,.95);background:rgba(106,88,124,.05)}
 }
 @media(max-width:720px){.logo{width:min(88vw,620px)}.links{margin-top:30px;gap:28px}}
 </style>

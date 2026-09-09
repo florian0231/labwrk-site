@@ -10,7 +10,8 @@
 <script>
 (async()=>{
   try{
-    const html=await fetch('/products/legacy.html',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.text()});
+    let html=await fetch('/products/legacy.html',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.text()});
+    html=html.split('Reduzierte Optik').join('OEM+ Optik');
     const extra=`<style id="labwrk-products-v25-editorial">
 :root{
   --labwrk-page:#ECEBE7;

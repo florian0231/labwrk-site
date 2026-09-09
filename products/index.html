@@ -221,6 +221,31 @@ a{color:inherit}
   *{scroll-behavior:auto!important}
   .product-visual img{transition:none!important}
 }
+.product-visual{background:#A3A3BA}
+.product-visual .image-primary{
+  inset:auto;
+  top:-25%;
+  left:0;
+  width:100%;
+  height:140%;
+  padding:0;
+  object-fit:contain;
+}
+.product-visual .image-secondary{
+  inset:auto;
+  top:50%;
+  left:50%;
+  width:auto;
+  max-width:none;
+  height:440%;
+  object-fit:fill;
+  translate:-35.5% -58%;
+  transform-origin:35.5% 58%;
+}
+@media(max-width:900px){
+  .product-visual .image-secondary{height:300%}
+}
+
 </style>
 </head>
 <body>

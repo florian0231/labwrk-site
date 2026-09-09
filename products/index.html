@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#1D161F">
+<meta name="description" content="LABWRK. Domlagerabdeckung für BMW E60, E61, E63 und E64.">
 <title>Products — LABWRK.</title>
 <link rel="icon" type="image/png" href="../favicon.png">
 <style>
@@ -11,10 +12,10 @@
   --bg:#1D161F;
   --fg:#F2EEF4;
   --muted:#948A98;
-  --line:rgba(242,238,244,.12);
+  --line:rgba(242,238,244,.13);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--bg)}
+html{background:var(--bg);scroll-behavior:smooth}
 body{
   margin:0;
   min-height:100vh;
@@ -26,39 +27,40 @@ body{
 }
 a{color:inherit}
 .shell{
-  width:min(100%,1900px);
+  width:min(100%,1720px);
   margin:0 auto;
-  padding:0 clamp(24px,5vw,82px) clamp(90px,9vw,150px);
+  padding:0 clamp(20px,4.2vw,72px) clamp(80px,8vw,140px);
 }
 .topbar{
-  min-height:clamp(76px,7vw,106px);
+  min-height:82px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-}
-.brand,.section-label{
-  margin:0;
-  font-weight:900;
-  text-transform:uppercase;
+  gap:24px;
 }
 .brand{
-  font-size:clamp(13px,1.05vw,17px);
-  letter-spacing:-.035em;
   text-decoration:none;
+  font-size:15px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-.045em;
+  text-transform:uppercase;
 }
 .section-label{
   color:var(--muted);
-  font-size:clamp(8px,.62vw,10px);
+  font-size:9px;
+  font-weight:700;
   letter-spacing:.18em;
+  text-transform:uppercase;
 }
 .hero{
-  padding-top:clamp(42px,5vw,78px);
+  padding-top:clamp(28px,4vw,60px);
 }
 .page-title{
-  width:min(88%,1500px);
-  margin:0 auto clamp(34px,4vw,62px);
-  font-size:clamp(4.3rem,9.4vw,10.8rem);
-  line-height:.78;
+  width:min(76vw,1180px);
+  margin:0 auto clamp(24px,2.8vw,42px);
+  font-size:clamp(4rem,8vw,8.6rem);
+  line-height:.80;
   letter-spacing:-.068em;
   font-weight:900;
   text-transform:uppercase;
@@ -66,96 +68,104 @@ a{color:inherit}
 }
 .product-visual{
   position:relative;
-  width:min(88%,1500px);
-  height:clamp(430px,47vw,720px);
+  width:min(76vw,1180px);
+  aspect-ratio:6/5;
   margin:0 auto;
   overflow:hidden;
-  background:#151117;
+  background:#D4D6E0;
   isolation:isolate;
   cursor:pointer;
 }
-.product-visual::after{
-  content:"VIEW / HOVER";
-  position:absolute;
-  right:18px;
-  bottom:16px;
-  z-index:4;
-  padding:7px 9px;
-  color:rgba(242,238,244,.72);
-  background:rgba(29,22,31,.35);
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  font-size:8px;
-  font-weight:700;
-  letter-spacing:.14em;
-  opacity:0;
-  transition:opacity .25s ease;
-  pointer-events:none;
-}
-.product-visual:hover::after{opacity:1}
 .product-visual img{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
   display:block;
+  border:0;
+  will-change:opacity,transform;
+  transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform 1s cubic-bezier(.22,.61,.36,1);
+}
+.product-visual .image-primary{
+  z-index:1;
+  opacity:1;
+  object-fit:contain;
+  object-position:center;
+}
+.product-visual .image-secondary{
+  z-index:2;
+  opacity:0;
   object-fit:cover;
   object-position:center;
-  border:0;
-  transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1);
-  will-change:opacity,transform;
 }
-.product-visual .image-primary{opacity:1;z-index:1}
-.product-visual .image-secondary{opacity:0;z-index:2}
+.product-visual::after{
+  content:"VIEW / HOVER";
+  position:absolute;
+  right:14px;
+  bottom:13px;
+  z-index:4;
+  padding:7px 9px;
+  color:rgba(242,238,244,.78);
+  background:rgba(29,22,31,.42);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.14em;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .22s ease;
+}
 @media(hover:hover) and (pointer:fine){
-  .product-visual:hover .image-primary{opacity:0;transform:scale(1.018)}
-  .product-visual:hover .image-secondary{opacity:1;transform:scale(1.018)}
+  .product-visual:hover::after{opacity:1}
+  .product-visual:hover .image-primary{opacity:0;transform:scale(1.01)}
+  .product-visual:hover .image-secondary{opacity:1;transform:scale(1.012)}
 }
-.product-visual.is-alt .image-primary{opacity:0;transform:scale(1.012)}
+.product-visual.is-alt .image-primary{opacity:0;transform:scale(1.01)}
 .product-visual.is-alt .image-secondary{opacity:1;transform:scale(1.012)}
 .product-info{
-  width:min(88%,1500px);
-  margin:clamp(34px,3.6vw,56px) auto 0;
-  padding-top:clamp(24px,2.8vw,40px);
-  border-top:1px solid var(--line);
+  width:min(76vw,1180px);
+  margin:0 auto;
+  padding-top:clamp(24px,2.6vw,38px);
   display:grid;
-  grid-template-columns:minmax(0,.95fr) minmax(320px,.85fr);
-  gap:clamp(46px,8vw,140px);
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
+  gap:clamp(42px,7vw,110px);
   align-items:start;
 }
 .product-title{
   margin:0;
   max-width:12ch;
-  font-size:clamp(2.8rem,5.2vw,5.9rem);
+  font-size:clamp(2.7rem,4.8vw,5.3rem);
   line-height:.86;
   letter-spacing:-.058em;
   font-weight:900;
   text-transform:uppercase;
 }
 .compatibility{
-  margin-top:clamp(16px,1.6vw,24px);
+  margin-top:14px;
   color:var(--muted);
-  font-size:clamp(9px,.72vw,11px);
+  font-size:10px;
+  line-height:1.5;
   font-weight:700;
   letter-spacing:.13em;
   text-transform:uppercase;
 }
 .description{
-  padding-top:.3em;
-  font-size:clamp(16px,1.18vw,19px);
-  line-height:1.58;
-  letter-spacing:-.012em;
+  padding-top:.28em;
+  font-size:clamp(15px,1.06vw,18px);
+  line-height:1.65;
+  letter-spacing:-.01em;
 }
-.description p{margin:0 0 .48em}
-.description p:last-child{
-  margin-top:1.25em;
+.description p{margin:0 0 .38em}
+.description .oem{
+  margin-top:1.15em;
   font-weight:700;
   letter-spacing:.01em;
 }
 .footer{
-  width:min(88%,1500px);
-  margin:clamp(100px,12vw,190px) auto 0;
-  padding-top:24px;
+  width:min(76vw,1180px);
+  margin:clamp(92px,10vw,160px) auto 0;
+  padding-top:22px;
   border-top:1px solid var(--line);
   display:flex;
   justify-content:space-between;
@@ -169,43 +179,30 @@ a{color:inherit}
 }
 .footer a{text-decoration:none;color:var(--fg);transition:opacity .2s ease}
 .footer a:hover{opacity:.55}
-.loading{
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-items:center;
-  color:var(--muted);
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
 @media(max-width:900px){
   .shell{padding-left:18px;padding-right:18px}
-  .hero{padding-top:34px}
+  .topbar{min-height:70px}
+  .hero{padding-top:28px}
   .page-title,.product-visual,.product-info,.footer{width:100%}
   .page-title{
-    margin-bottom:28px;
-    font-size:clamp(3.6rem,17vw,7rem);
+    margin-bottom:24px;
+    font-size:clamp(3.5rem,16vw,6.8rem);
     white-space:normal;
   }
-  .product-visual{height:clamp(390px,82vw,620px)}
+  .product-visual{aspect-ratio:4/5}
   .product-info{
     grid-template-columns:1fr;
-    gap:28px;
-    margin-top:30px;
+    gap:24px;
+    padding-top:24px;
   }
-  .product-title{max-width:none;font-size:clamp(2.8rem,12vw,5.2rem)}
-  .description{padding-top:0}
+  .product-title{max-width:none;font-size:clamp(2.8rem,11vw,5rem)}
+  .description{padding-top:0;font-size:16px}
 }
 @media(max-width:560px){
-  .topbar{min-height:68px}
-  .hero{padding-top:24px}
-  .page-title{font-size:clamp(3.15rem,18vw,5rem)}
-  .product-visual{height:112vw;max-height:580px}
-  .product-info{margin-top:24px;padding-top:22px}
-  .description{font-size:16px}
-  .footer{margin-top:90px;align-items:flex-start;flex-direction:column}
+  .hero{padding-top:20px}
+  .page-title{font-size:clamp(3rem,17vw,4.8rem)}
+  .product-info{padding-top:21px}
+  .footer{margin-top:82px;align-items:flex-start;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important}
@@ -224,7 +221,8 @@ a{color:inherit}
     <h1 class="page-title">PRODUCTS.</h1>
 
     <div id="heroVisual" class="product-visual" role="button" tabindex="0" aria-label="Produktbild wechseln">
-      <div class="loading">Loading product</div>
+      <img class="image-primary" src="assets/embedded-04db9b3f18a4af37.png" alt="LABWRK Domlagerabdeckung Produktansicht">
+      <img class="image-secondary" src="assets/embedded-4db0bce3bc9649ae.jpg" alt="LABWRK Domlagerabdeckung montiert im BMW Motorraum">
     </div>
 
     <section class="product-info" aria-label="Produktinformationen">
@@ -235,7 +233,7 @@ a{color:inherit}
       <div class="description">
         <p>Abdeckung für den sichtbaren Domlagerbereich.</p>
         <p>Passend für BMW E60, E61, E63 und E64.</p>
-        <p>OEM+ Optik</p>
+        <p class="oem">OEM+ Optik</p>
       </div>
     </section>
   </section>
@@ -245,54 +243,18 @@ a{color:inherit}
     <span>Automotive Details / 2026</span>
   </footer>
 </main>
-
 <script>
-(async()=>{
-  const hero=document.getElementById('heroVisual');
-  const probe=src=>new Promise(resolve=>{
-    const img=new Image();
-    img.onload=()=>resolve({src,w:img.naturalWidth,h:img.naturalHeight});
-    img.onerror=()=>resolve(null);
-    img.src=src;
-  });
-
-  try{
-    const legacy=await fetch('./legacy.html',{cache:'no-store'}).then(r=>{
-      if(!r.ok)throw new Error(r.status);
-      return r.text();
-    });
-    const doc=new DOMParser().parseFromString(legacy,'text/html');
-    const sources=[...doc.images].map(img=>img.getAttribute('src')).filter(Boolean);
-    const tested=(await Promise.all(sources.slice(0,16).map(probe))).filter(Boolean);
-    const large=tested.filter(x=>x.w>=500&&x.h>=300);
-    if(large.length<2)throw new Error('not enough product images');
-
-    const installed=large[0];
-    const product=large[1];
-
-    hero.innerHTML=`
-      <img class="image-primary" src="${product.src}" alt="LABWRK Domlagerabdeckung Produktansicht">
-      <img class="image-secondary" src="${installed.src}" alt="LABWRK Domlagerabdeckung im eingebauten Zustand">
-    `;
-
-    const toggle=()=>hero.classList.toggle('is-alt');
-    hero.addEventListener('click',e=>{
-      if(matchMedia('(hover:hover) and (pointer:fine)').matches)return;
-      e.preventDefault();
-      toggle();
-    });
-    hero.addEventListener('keydown',e=>{
-      if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}
-    });
-  }catch(err){
-    hero.innerHTML='<div class="loading">Product image unavailable</div>';
-  }
-})();
-
 (()=>{
-  const titles=['Products — LABWRK.','LABWRK. / AUTOMOTIVE DETAILS'];
-  let i=0;
-  setInterval(()=>{i=(i+1)%titles.length;document.title=titles[i]},2600);
+  const hero=document.getElementById('heroVisual');
+  const toggle=()=>hero.classList.toggle('is-alt');
+  hero.addEventListener('click',e=>{
+    if(matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+    e.preventDefault();
+    toggle();
+  });
+  hero.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}
+  });
 })();
 </script>
 </body>

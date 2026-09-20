@@ -65,3 +65,7 @@ html,body{margin:0;background:#ECEBE7}body{-webkit-font-smoothing:antialiased}
 #labwrk-catalog .lw-buy{display:inline-flex;align-items:center;min-height:44px;margin-top:20px;padding:12px 18px;background:var(--lw-fg);color:var(--lw-bg);font-family:"Inter Tight",Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-decoration:none}
 #labwrk-catalog .lw-buy:hover{opacity:.8}
 #labwrk-catalog a:focus-visible,#labwrk-catalog button:focus-visible{outline:2px solid currentColor;outline-offset:5px}
+
+#labwrk-catalog .lw-e46-cover-photo{background:#e5e1dc}
+#labwrk-catalog .lw-e46-cover-photo .lw-primary,#labwrk-catalog .lw-e46-cover-photo .lw-secondary{inset:0;width:100%;height:100%;object-fit:cover;object-position:center;translate:none;transform-origin:center}
+#labwrk-catalog .lw-detail-photo.lw-e46-cover-photo{height:auto;aspect-ratio:1;max-height:none}

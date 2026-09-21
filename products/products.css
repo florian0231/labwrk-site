@@ -69,3 +69,8 @@ html,body{margin:0;background:#ECEBE7}body{-webkit-font-smoothing:antialiased}
 #labwrk-catalog .lw-e46-cover-photo{background:#e5e1dc}
 #labwrk-catalog .lw-e46-cover-photo .lw-primary,#labwrk-catalog .lw-e46-cover-photo .lw-secondary{inset:0;width:100%;height:100%;object-fit:cover;object-position:center;translate:none;transform-origin:center}
 #labwrk-catalog .lw-detail-photo.lw-e46-cover-photo{height:auto;aspect-ratio:1;max-height:none}
+
+#labwrk-catalog .lw-section-title{margin:0 0 24px;font-size:clamp(38px,5.5vw,62px);line-height:.9;letter-spacing:-.065em;font-weight:900}
+#labwrk-catalog .lw-buy-group{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+#labwrk-catalog .lw-buy-group .lw-buy{margin-top:20px}
+#labwrk-catalog .lw-buy--etsy{background:transparent;color:var(--lw-fg);box-shadow:inset 0 0 0 1px var(--lw-fg)}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#ffffff">
   <title>LABWRK. · AUTOMOTIVE DETAILS</title>
   <meta name="description" content="LABWRK. entwickelt funktionales Automotive-Zubehör mit klarer OEM+ Optik – konstruiert und gefertigt in Deutschland.">
   <meta name="robots" content="index,follow">
@@ -15,59 +15,58 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <style>
     @font-face{font-family:"Inter Tight";font-style:normal;font-display:swap;font-weight:700;src:url("/assets/fonts/inter-tight-latin-700-normal.woff2") format("woff2")}
-    :root{color-scheme:dark;--ink:#f7f7f7;--muted:#a5a5a5;--cube-size:clamp(190px,39vmin,370px)}
+    :root{color-scheme:light;--ink:#111;--muted:#626262;--cube-size:clamp(190px,40.5vmin,365px)}
     *{box-sizing:border-box}
-    html{background:#050505}
-    body{margin:0;min-height:100svh;background:#050505;color:var(--ink);font-family:"Inter Tight",Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
-    a{color:inherit}
+    html,body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+    body{min-height:100svh;position:relative}
+    a{color:inherit;text-decoration:none}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .masthead{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:clamp(22px,4vw,46px) clamp(22px,4.2vw,64px);font-size:clamp(14px,1.4vw,19px);letter-spacing:-.045em}
-    .masthead a{text-decoration:none}
-    .masthead .products{font-size:14px;letter-spacing:.06em}
-    .masthead a:hover,.masthead a:focus-visible,.links a:hover,.links a:focus-visible,.legal a:hover,.legal a:focus-visible{opacity:.65}
-    .hero{min-height:100svh;display:grid;place-items:center;padding:110px 24px 100px;overflow:hidden}
-    .brand{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;transform:translateY(-2vh)}
-    .cube-link{display:grid;place-items:center;width:min(84vw,670px);height:clamp(310px,58vmin,590px);text-decoration:none;outline-offset:8px}
-    .scene{display:grid;place-items:center;width:100%;height:100%;perspective:1100px;perspective-origin:50% 50%;pointer-events:none}
-    .cube{position:relative;width:var(--cube-size);height:var(--cube-size);transform-style:preserve-3d;animation:turn 19s linear infinite;will-change:transform}
-    .face{position:absolute;inset:0;background-color:#050505;background-size:100% 100%;background-repeat:no-repeat;backface-visibility:hidden}
-    .front{background-image:url('/assets/cube/left-v2.webp');transform:translateZ(calc(var(--cube-size) / 2))}
-    .right{background-image:url('/assets/cube/right-v2.webp');transform:rotateY(90deg) translateZ(calc(var(--cube-size) / 2))}
-    .back{background-image:url('/assets/cube/left-v2.webp');transform:rotateY(180deg) translateZ(calc(var(--cube-size) / 2))}
-    .left{background-image:url('/assets/cube/right-v2.webp');transform:rotateY(-90deg) translateZ(calc(var(--cube-size) / 2))}
-    .top{background-image:url('/assets/cube/top-v2.webp');transform:rotateX(90deg) translateZ(calc(var(--cube-size) / 2))}
-    .bottom{background-image:url('/assets/cube/top-v2.webp');transform:rotateX(-90deg) translateZ(calc(var(--cube-size) / 2))}
-    @keyframes turn{from{transform:rotateX(-22deg) rotateY(-32deg)}to{transform:rotateX(-22deg) rotateY(328deg)}}
-    .hint{margin-top:-3px;color:var(--muted);font:700 12px/1.2 "Inter Tight",Arial,sans-serif;letter-spacing:.19em;transition:color .2s ease}
-    .hint .tap{display:none}
-    .cube-link:hover + .hint,.cube-link:focus-visible + .hint{color:#fff}
-    .links{display:flex;align-items:center;gap:32px;margin-top:30px}
-    .links a{display:grid;place-items:center;width:32px;height:32px;transition:opacity .2s ease}
-    .links svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-    .legal{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:20px;white-space:nowrap;font:700 11px/1.3 "Inter Tight",Arial,sans-serif;letter-spacing:.08em}
-    .legal a{color:var(--muted);text-decoration:none;transition:opacity .2s ease}
+    .masthead{position:absolute;inset:0 0 auto;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:40px 4.4vw}
+    .masthead img{display:block;width:141px;height:auto}
+    .products{font-size:16px;font-weight:500;letter-spacing:.28em}
+    .hero{min-height:560px;height:100svh;position:relative;overflow:hidden}
+    .brand{position:absolute;inset:0}
+    .cube-link{position:absolute;display:block;left:50%;top:50%;transform:translate(-50%,-55%);width:min(92vw,720px);height:calc(var(--cube-size)*1.9);outline-offset:8px}
+    .scene{position:relative;z-index:1;display:grid;place-items:center;width:100%;height:100%;perspective:2800px;pointer-events:none}
+    .cube{position:relative;width:var(--cube-size);height:var(--cube-size);transform-style:preserve-3d;animation:turn 24s linear infinite;will-change:transform}
+    .face{position:absolute;inset:0;background:#080808 center/100% 100% no-repeat;backface-visibility:hidden}
+    .face:after{content:"";position:absolute;inset:0;background:#000;opacity:.035;pointer-events:none}
+    .top:after{opacity:0}.front:after{opacity:.025}.bottom:after{opacity:.12}
+    .front{background-image:url('/assets/cube/front-v3.webp');transform:translateZ(calc(var(--cube-size)/2))}
+    .right{background-image:url('/assets/cube/right-v3.webp');transform:rotateY(90deg) translateZ(calc(var(--cube-size)/2))}
+    .back{background-image:url('/assets/cube/front-v3.webp');transform:rotateY(180deg) translateZ(calc(var(--cube-size)/2))}
+    .left{background-image:url('/assets/cube/right-v3.webp');transform:rotateY(-90deg) translateZ(calc(var(--cube-size)/2))}
+    .top{background-image:url('/assets/cube/top-v3.webp');transform:rotateX(90deg) translateZ(calc(var(--cube-size)/2))}
+    .bottom{background-image:url('/assets/cube/top-v3.webp');transform:rotateX(-90deg) translateZ(calc(var(--cube-size)/2))}
+    @keyframes turn{from{transform:rotateX(-32deg) rotateY(-45deg)}to{transform:rotateX(-32deg) rotateY(315deg)}}
+    .ground-shadow{position:absolute;width:calc(var(--cube-size)*1.9);height:calc(var(--cube-size)*.25);left:50%;bottom:-1%;transform:translateX(-50%);mix-blend-mode:multiply;pointer-events:none;opacity:1;mask-image:radial-gradient(ellipse closest-side,#000 65%,transparent 100%)}
+    .hint{position:absolute;left:50%;top:calc(50% + var(--cube-size)*.94);transform:translateX(-50%);display:block;margin:0;text-align:center;font-size:16px;line-height:1.6;letter-spacing:.28em}
+    .hint:after{content:"";display:block;width:12px;height:12px;border-right:1px solid;border-bottom:1px solid;transform:rotate(45deg);margin:8px auto 0}
+    .links{position:absolute;bottom:22px;left:4.4vw;display:flex;gap:16px;margin:0;color:#555}
+    .links a{display:grid;place-items:center;width:24px;height:24px}
+    .links svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .legal{position:absolute;bottom:28px;right:4.4vw;display:flex;justify-content:center;gap:20px;font-size:10px;letter-spacing:.1em;color:#686868}
+    a:focus-visible{outline:2px solid #111;outline-offset:6px}
+    .products:hover,.hint:hover,.links a:hover,.legal a:hover{opacity:.6}
     @media(max-width:640px){
-      :root{--cube-size:clamp(188px,55vw,280px)}
-      .masthead{padding:22px 24px}
-      .cube-link{height:clamp(320px,58vh,490px)}
-      .hint{margin-top:-12px}
-      .hint .click{display:none}.hint .tap{display:inline}
-      .links{margin-top:22px}
-      .legal{gap:13px;font-size:10px;bottom:15px}
+      :root{--cube-size:clamp(172px,53vw,260px)}
+      .masthead{padding:25px 24px}.masthead img{width:85px}.products{font-size:11px;letter-spacing:.2em}
+      .hint{font-size:12px}
+      .links{left:24px}.legal{right:24px;font-size:9px;gap:10px}
     }
-    @media(max-height:620px){.hero{padding-top:80px;padding-bottom:65px}.cube-link{height:clamp(230px,65vh,370px)}:root{--cube-size:clamp(155px,38vh,255px)}.brand{transform:none}.legal{position:static;justify-content:center;padding:0 0 16px}}
-    @media(prefers-reduced-motion:reduce){.cube{animation:none;transform:rotateX(-22deg) rotateY(-32deg)}}
-  </style>
+    @media(max-height:650px) and (min-width:641px){:root{--cube-size:36vh}.masthead{padding-top:20px}.hint{font-size:12px}}
+    @media(prefers-reduced-motion:reduce){.cube{animation:none;transform:rotateX(-32deg) rotateY(-45deg)}}
+</style>
 </head>
 <body>
-  <header class="masthead"><a href="/" aria-label="LABWRK. Startseite">LABWRK.</a><a class="products" href="/products/">PRODUCTS</a></header>
+  <header class="masthead"><a href="/" aria-label="LABWRK. Startseite"><img src="/assets/cube/wordmark.webp" width="141" height="66" alt="LABWRK."></a><a class="products" href="/products/">PRODUCTS</a></header>
   <main class="hero">
     <div class="brand">
       <h1 class="sr-only">LABWRK. Automotive-Zubehör in OEM+ Optik</h1>
       <a class="cube-link" href="/products/" aria-label="LABWRK. Produkte ansehen">
-        <span class="scene" aria-hidden="true"><span class="cube"><span class="face front"></span><span class="face right"></span><span class="face back"></span><span class="face left"></span><span class="face top"></span><span class="face bottom"></span></span></span>
+        <img class="ground-shadow" src="/assets/cube/shadow.webp" alt="" aria-hidden="true"><span class="scene" aria-hidden="true"><span class="cube"><span class="face front"></span><span class="face right"></span><span class="face back"></span><span class="face left"></span><span class="face top"></span><span class="face bottom"></span></span></span>
       </a>
-      <span class="hint" aria-hidden="true"><span class="click">CLICK TO EXPLORE</span><span class="tap">TAP TO EXPLORE</span></span>
+      <a class="hint" href="/products/" aria-label="Produkte entdecken">ENTER</a>
       <nav class="links" aria-label="Weitere Links">
         <a href="https://www.instagram.com/labwrk.parts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a>
         <a href="/products/" aria-label="Produkte ansehen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></a>

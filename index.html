@@ -30,13 +30,13 @@
     .cube-link{display:grid;place-items:center;width:min(84vw,670px);height:clamp(310px,58vmin,590px);text-decoration:none;outline-offset:8px}
     .scene{display:grid;place-items:center;width:100%;height:100%;perspective:1100px;perspective-origin:50% 50%;pointer-events:none}
     .cube{position:relative;width:var(--cube-size);height:var(--cube-size);transform-style:preserve-3d;animation:turn 19s linear infinite;will-change:transform}
-    .face{position:absolute;inset:0;background-color:#050505;background-size:100% 100%;background-repeat:no-repeat;backface-visibility:hidden;outline:1px solid #101010}
-    .front{background-image:url('/assets/cube/left.webp');transform:translateZ(calc(var(--cube-size) / 2))}
-    .right{background-image:url('/assets/cube/right.webp');transform:rotateY(90deg) translateZ(calc(var(--cube-size) / 2))}
-    .back{background-image:url('/assets/cube/left.webp');transform:rotateY(180deg) translateZ(calc(var(--cube-size) / 2))}
-    .left{background-image:url('/assets/cube/right.webp');transform:rotateY(-90deg) translateZ(calc(var(--cube-size) / 2))}
-    .top{background-image:url('/assets/cube/top.webp');transform:rotateX(90deg) translateZ(calc(var(--cube-size) / 2))}
-    .bottom{background-image:url('/assets/cube/top.webp');transform:rotateX(-90deg) translateZ(calc(var(--cube-size) / 2))}
+    .face{position:absolute;inset:0;background-color:#050505;background-size:100% 100%;background-repeat:no-repeat;backface-visibility:hidden}
+    .front{background-image:url('/assets/cube/left-v2.webp');transform:translateZ(calc(var(--cube-size) / 2))}
+    .right{background-image:url('/assets/cube/right-v2.webp');transform:rotateY(90deg) translateZ(calc(var(--cube-size) / 2))}
+    .back{background-image:url('/assets/cube/left-v2.webp');transform:rotateY(180deg) translateZ(calc(var(--cube-size) / 2))}
+    .left{background-image:url('/assets/cube/right-v2.webp');transform:rotateY(-90deg) translateZ(calc(var(--cube-size) / 2))}
+    .top{background-image:url('/assets/cube/top-v2.webp');transform:rotateX(90deg) translateZ(calc(var(--cube-size) / 2))}
+    .bottom{background-image:url('/assets/cube/top-v2.webp');transform:rotateX(-90deg) translateZ(calc(var(--cube-size) / 2))}
     @keyframes turn{from{transform:rotateX(-22deg) rotateY(-32deg)}to{transform:rotateX(-22deg) rotateY(328deg)}}
     .hint{margin-top:-3px;color:var(--muted);font:700 12px/1.2 "Inter Tight",Arial,sans-serif;letter-spacing:.19em;transition:color .2s ease}
     .hint .tap{display:none}

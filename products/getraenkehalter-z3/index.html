@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://labwrk.de/products/getraenkehalter-z3/">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="stylesheet" href="/products/products.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"LABWRK. BMW Z3 Getränkehalter mit zwei Einsätzen","description":"Getränkehalter für die Mittelkonsole des BMW Z3 mit zwei herausnehmbaren Reduziereinsätzen.","image":["https://labwrk.de/products/assets/z3-getraenkehalter-ansicht-1.webp"],"sku":"LABWRK-Z3-GH-001","brand":{"@type":"Brand","name":"LABWRK."},"url":"https://labwrk.de/products/getraenkehalter-z3/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"LABWRK. BMW Z3 Getränkehalter mit zwei Einsätzen","description":"Getränkehalter für die Mittelkonsole des BMW Z3 mit zwei herausnehmbaren Reduziereinsätzen.","image":["https://labwrk.de/products/assets/z3-getraenkehalter-bild-1.webp"],"sku":"LABWRK-Z3-GH-001","brand":{"@type":"Brand","name":"LABWRK."},"url":"https://labwrk.de/products/getraenkehalter-z3/"}</script>
 </head>
 <body>
 <div id="labwrk-catalog">
@@ -19,7 +19,7 @@
   <a class="lw-back" href="/products/">← ALLE PRODUKTE</a>
   <div class="lw-detail-wrap">
    <p class="lw-section-title">PRODUCTS.</p>
-   <div class="lw-z3-gallery"><div class="lw-photo lw-detail-photo lw-z3-photo"><img src="/products/assets/z3-getraenkehalter-ansicht-1.webp" alt="BMW Z3 Getränkehalter in der Mittelkonsole, von oben gesehen"></div><div class="lw-photo lw-detail-photo lw-z3-photo"><img src="/products/assets/z3-getraenkehalter-ansicht-2.webp" alt="BMW Z3 Getränkehalter aus seitlichem Blickwinkel"></div></div>
+   <button class="lw-photo lw-detail-photo lw-z3-photo" aria-label="Produktbild wechseln" aria-pressed="false"><img class="lw-primary" src="/products/assets/z3-getraenkehalter-bild-1.webp" alt="BMW Z3 Getränkehalter in der Mittelkonsole, von oben gesehen"><img class="lw-secondary" src="/products/assets/z3-getraenkehalter-bild-2.webp" alt="BMW Z3 Getränkehalter aus seitlichem Blickwinkel"></button>
    <h1 class="lw-detail-title">GETRÄNKEHALTER.</h1>
    <p class="lw-sub">BMW Z3 · OEM+ LOOK</p>
    <p class="lw-price">27,90 €</p>
@@ -30,6 +30,15 @@
 </main>
 <footer class="lw-foot"><a href="/">← BACK TO LABWRK.</a><nav class="lw-legal" aria-label="Rechtliche Informationen"><a href="/impressum/">IMPRESSUM</a><a href="/datenschutz/">DATENSCHUTZ</a><a href="/agb/">AGB</a></nav></footer>
 </div>
+<script>
+(()=>{
+ const photo=document.querySelector('.lw-detail-photo');
+ photo.addEventListener('click',()=>{
+  const alt=photo.classList.toggle('is-alt');
+  photo.setAttribute('aria-pressed',String(alt));
+ });
+})();
+</script>
 
 </body>
 </html>

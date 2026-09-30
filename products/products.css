@@ -79,3 +79,7 @@ html,body{margin:0;background:#ffffff}body{-webkit-font-smoothing:antialiased}
 #labwrk-catalog{min-height:100svh}#labwrk-catalog .lw-nav{max-width:1280px;margin:auto}#labwrk-catalog .lw-brand{display:block;width:100px;line-height:0}#labwrk-catalog .lw-brand img{width:100%;height:auto}#labwrk-catalog .lw-photo{border:1px solid #e5e5e5}#labwrk-catalog .lw-buy{border:1px solid #111}#labwrk-catalog .lw-buy--etsy{background:#fff;color:#111}
 
 
+
+#labwrk-catalog .lw-z3-photo img{inset:0;width:100%;height:100%;object-fit:cover;object-position:center 54%}
+#labwrk-catalog .lw-detail-photo.lw-z3-photo{height:auto;aspect-ratio:4/5;max-height:620px;cursor:default}
+#labwrk-catalog .lw-price{font-family:"Inter Tight",Arial,sans-serif;font-weight:700;font-size:20px;margin:20px 0 0}

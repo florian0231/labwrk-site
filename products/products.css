@@ -89,15 +89,15 @@ html,body{margin:0;background:#ffffff}body{-webkit-font-smoothing:antialiased}
 
 #labwrk-catalog .lw-z3-photo .lw-secondary{object-position:center bottom}
 
-/* BMW E36 product photos and gallery. */
+/* Product overview photos and shared detail gallery. */
 #labwrk-catalog .lw-e36-photo .lw-primary,#labwrk-catalog .lw-e36-photo .lw-secondary{inset:0;width:100%;height:100%;object-fit:cover;object-position:center 57%;translate:none;transform-origin:center}
 #labwrk-catalog .lw-e36-photo .lw-secondary{object-fit:contain;background:#fff}
-#labwrk-catalog .lw-e36-gallery{margin:0}
-#labwrk-catalog .lw-detail-photo.lw-e36-main{height:auto;aspect-ratio:3/4;cursor:default}
-#labwrk-catalog .lw-e36-main img{inset:0;width:100%;height:100%;object-fit:contain}
-#labwrk-catalog .lw-e36-thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:12px}
-#labwrk-catalog .lw-e36-thumb{border:1px solid #ddd;background:#fff;padding:4px;min-width:0}
-#labwrk-catalog .lw-e36-thumb[aria-pressed="true"]{border:2px solid #111;padding:3px}
-#labwrk-catalog .lw-e36-thumb img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain}
-#labwrk-catalog .lw-e36-thumb span{display:block;font-family:"Inter Tight",Arial,sans-serif;font-size:9px;font-weight:700;letter-spacing:.03em;margin:7px 0 4px;overflow-wrap:anywhere}
-@media(max-width:400px){#labwrk-catalog .lw-e36-thumbs{gap:4px}#labwrk-catalog .lw-e36-thumb span{font-size:8px}}
+#labwrk-catalog .lw-product-gallery{margin:0}
+#labwrk-catalog .lw-detail-photo.lw-gallery-main{height:auto;aspect-ratio:3/4;cursor:default}
+#labwrk-catalog .lw-gallery-main img{inset:0;width:100%;height:100%;object-fit:contain}
+#labwrk-catalog .lw-gallery-thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:12px}
+#labwrk-catalog .lw-gallery-thumb{border:1px solid #ddd;background:#fff;padding:4px;min-width:0}
+#labwrk-catalog .lw-gallery-thumb[aria-pressed="true"]{border:2px solid #111;padding:3px}
+#labwrk-catalog .lw-gallery-thumb img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain}
+#labwrk-catalog .lw-gallery-thumb span{display:block;font-family:"Inter Tight",Arial,sans-serif;font-size:9px;font-weight:700;letter-spacing:.03em;margin:7px 0 4px;overflow-wrap:anywhere}
+@media(max-width:400px){#labwrk-catalog .lw-gallery-thumbs{gap:4px}#labwrk-catalog .lw-gallery-thumb span{font-size:8px}}

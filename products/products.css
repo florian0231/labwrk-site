@@ -101,3 +101,6 @@ html,body{margin:0;background:#ffffff}body{-webkit-font-smoothing:antialiased}
 #labwrk-catalog .lw-gallery-thumb img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain}
 #labwrk-catalog .lw-gallery-thumb span{display:block;font-family:"Inter Tight",Arial,sans-serif;font-size:9px;font-weight:700;letter-spacing:.03em;margin:7px 0 4px;overflow-wrap:anywhere}
 @media(max-width:400px){#labwrk-catalog .lw-gallery-thumbs{gap:4px}#labwrk-catalog .lw-gallery-thumb span{font-size:8px}}
+
+/* Keep the E46 cover installation photo upright in every view. */
+#labwrk-catalog img[src="/products/assets/e46-domlagerabdeckung-eingebaut.webp"]{rotate:180deg}

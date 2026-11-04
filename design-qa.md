@@ -1,35 +1,45 @@
-# LABWRK revised portfolio — verification status
+# Design QA – LABWRK.
 
 final result: blocked
 
-## Visual target and approved changes
+## Source visual truth
 
-Source visual truth: /workspace/scratch/b6e0aa1e5820/generated_images/exec-a43ac7a0-837b-488f-81ef-1b248636d960.png, 1024 × 1536 px.
-The user requested general construction/3D-printing positioning, corrected landing-page text formatting, a denser second section, airbox and cupholder projects with appealing imagery, and first-person about copy without a name introduction. These content/section changes intentionally depart from the earlier mock. The header corners remain clear.
+Selected image: exec-dc707640-8c2d-4bab-96ed-307aa438287d.png (displayed option 2, Leinen/Aubergine layout). Approved changes are fully retained in DESIGN.md: blue mat; graphite/chalk/raspberry; Barlow Condensed + Inter; dark content; single slope; approved copy; Z3 first; corrected Airbox part 3; no personal section or decorative elements.
 
-## Browser blocker and evidence
+## Browser evidence and blocker
 
-Supported sites-preview service reports running. The current Cloud Browser navigation to http://terminal.local:4173/ timed out and its resulting visible AX state showed: upstream connect error or disconnect/reset before headers; reset reason: connection termination. No rendered application screenshot is available. No file-URL workaround was attempted.
+- Requested implementation: http://terminal.local:4173/
+- Cloud Browser: Chrome cdp, tab 1.
+- Navigation timed out, then the actual tab accessibility observation showed: `upstream connect error or disconnect/reset before headers. reset reason: connection termination`.
+- Preview service reports running. That is not browser verification.
+- Implementation screenshot: unavailable because the route displays the upstream error rather than the website.
+- Viewport/source-normalized screenshots, full-view comparison, focused-region comparisons, and browser console/primary interaction checks: blocked. No side-by-side visual comparison or passing QA claimed.
 
-Implementation screenshot: unavailable.
-Viewport: browser default; no valid app CSS viewport/density can be measured while the route is blocked.
-State: initial route.
-Full-view comparison and focused-region comparison: blocked, because no browser-rendered implementation exists.
-Console check: not completed on a rendered page.
-Primary interactions implemented: hero anchor, native project details, E36/E46/Z3 gallery buttons, mail/Instagram/legal links. They remain browser-unverified.
+## Checks completed, independently of blocked browser QA
 
-## Five fidelity surfaces
+- JavaScript syntax check passed.
+- HTML IDs and anchors checked; all local images, gallery alternatives, fonts and legal routes resolve to existing files.
+- User-approved headings and project copy matched exactly; personal section, project numbers and decorative tags removed.
+- Gallery and motion logic exercised in a Node DOM simulation: all six cupholder model/view combinations; model switch resets to overall view; Z3 default; both Airbox views; pointer translation; reduced-motion reset and suppression. This is not a browser test.
+- Real Barlow font widths checked at responsive breakpoints; tablet font/layout adjusted after an initial width issue.
+- Fonts self-hosted, including Inter 400 and 500; original OFL license files included.
+- CAD orientation corrected using original rim geometry: 320 points match within 0.000051 mm.
+- Offline export includes all initial and dynamically selected images and fonts; no runtime CDN requirement.
+- Vite parse/build command completed but warned that the classic script is not bundled. The generated dist is not a release artifact and is not deployed. The source remains a buildless GitHub Pages site.
 
-- Typography: Anton for display, Inter Tight for actions, Arial for body. Short descriptive hero headline replaces long BMW-only copy. Measured actual Anton text width at viewport widths 320, 375, 390, 700, 701, 1024, 1348, 1920: the headline fits the available page width at all samples. Browser line-height/metrics still need capture.
-- Layout: explicit hero heading line spans, denser two-column competence section with full-height installation image and three explanatory rows; two substantial project stories; first-person about. Mobile stacks sections and image/text intentionally. Overflow and responsive visual QA remain open.
-- Colors: petrol #122321, paper #f1ebe1, ink #202322 and amber #dca866 preserved. Photographic background has gentler contrast. Mobile adds uniform opacity reduction for legibility; actual contrast needs visual inspection.
-- Images: new source-aligned hero includes cube within the photograph, no extra CSS cube. Airbox rendered from original V2 STL files without inventing an assembly. Installation photographs are existing repository assets. The development state is labelled. No handcrafted icon/image replacements. Image crops require final browser review.
-- Copy: general construction and printing focus, BMW appears only in project examples and captions. Airbox is explicitly in development. About uses first person without name introduction. No sales claims or purchase links.
+## Required fidelity surfaces
 
-## Checks completed
+- Fonts/typography: source fonts and casing implemented; browser wrapping and rendering remain unverified.
+- Spacing/layout rhythm: responsive source layout implemented; visual comparison blocked.
+- Colors/tokens: exact approved neutrals and accent implemented; visual comparison blocked.
+- Image quality/fidelity: photographic hero edited with imagegen; both native CAD renders inspected; original cupholder images retained, Z3 first; actual responsive crop remains unverified.
+- Copy/content: all approved hero/project strings checked; no personal section.
 
-node --check labwrk.js, git diff --check, all local asset/link targets, source metadata and headline width measurements pass. Gallery code updates src, alt, caption and pressed state together. Native details preserve operation without JS. No main/live update.
+## Next checks before publication
 
-## Required remaining gate
+1. Restore supported cloud-preview route and capture desktop/mobile implementation.
+2. Compare selected composition plus approved changes at matched viewports.
+3. Test gallery controls, anchors, keyboard focus, pointer motion and reduced-motion preference in the browser; inspect console.
+4. Correct any observed P0/P1/P2 issues and capture again.
 
-Restore supported preview connectivity. Capture desktop/mobile, compare target hero and intentional revised sections, test gallery buttons, anchors, details, keyboard and contact/legal links, inspect console, address findings and only then change final result to passed.
+Live main branch is unchanged. This is an unverified draft, not a passed design handoff.

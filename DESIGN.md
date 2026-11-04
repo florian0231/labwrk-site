@@ -31,3 +31,7 @@ Eigene Muschel-V02-Montage plus V04-Einlass, direkt aus CAD/STL gerendert. Keine
 ## Prüfung
 
 Sichtprüfung im Cloud-Browser blockiert, siehe design-qa.md. Vor Veröffentlichung visuell auf Desktop und Handy prüfen. Die Selbstenthaltene HTML-Vorschau wird aus den Quelldateien erzeugt; Schriften und Galerieansichten sind eingebettet.
+
+## Bildausschnitte – Korrektur nach Rückmeldung
+
+Beide Projektbilder auf gleiche Breite und Höhe ausgerichtet, Format 4:5. Keine künstlichen Einpassränder. Motivbezogene Ausschnitte für jede Galerieansicht; bei Z3 wird die Sitzfläche reduziert und der Getränkehalter betont. Die CAD-Geometrie und Bilddateien bleiben unverändert. Gesamtansichten behalten das Produkt, Detailansichten dürfen näher herangehen. Bildwechsel setzen auch den passenden Ausschnitt zurück.

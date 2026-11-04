@@ -43,3 +43,7 @@ Selected image: exec-dc707640-8c2d-4bab-96ed-307aa438287d.png (displayed option 
 4. Correct any observed P0/P1/P2 issues and capture again.
 
 Live main branch is unchanged. This is an unverified draft, not a passed design handoff.
+
+## Image-framing revision
+
+User reports excessive/uneven project image margins. Updated equal-width 4:5 frames, removed vertical offset, changed contain to cover and added individual crop/focal settings for each gallery state. Initial crops are in markup. Hover no longer changes image framing; reduced motion leaves crops intact. Original pixels and geometry unchanged. Browser visual comparison remains blocked by the recorded upstream preview connection error; these crop settings require user review.

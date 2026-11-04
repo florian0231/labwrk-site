@@ -1,180 +1,52 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
-  <title>LABWRK. · AUTOMOTIVE DETAILS</title>
-  <meta name="description" content="LABWRK. entwickelt funktionales Automotive-Zubehör mit klarer OEM+ Optik – konstruiert und gefertigt in Deutschland.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://labwrk.de/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="LABWRK. · AUTOMOTIVE DETAILS">
-  <meta property="og:description" content="Funktionales Automotive-Zubehör mit klarer OEM+ Optik. Entwickelt und gefertigt in Deutschland.">
-  <meta property="og:url" content="https://labwrk.de/">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="stylesheet" href="/products/products.css?v=shifter-1">
-  <style>
-    @font-face{font-family:"Inter Tight";font-style:normal;font-display:swap;font-weight:700;src:url("/assets/fonts/inter-tight-latin-700-normal.woff2") format("woff2")}
-    :root{color-scheme:light;--ink:#111;--muted:#626262;--cube-size:clamp(190px,40.5vmin,365px)}
-    *{box-sizing:border-box}
-    html,body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
-    body{min-height:100svh;position:relative}
-    a{color:inherit;text-decoration:none}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .masthead{position:absolute;inset:0 0 auto;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:40px 4.4vw}
-    .masthead img{display:block;width:141px;height:auto}
-    .products{font-size:16px;font-weight:500;letter-spacing:.28em}
-    .hero{min-height:560px;height:100svh;position:relative;overflow:hidden}
-    .brand{position:absolute;inset:0}
-    .cube-link{position:absolute;display:block;left:50%;top:50%;transform:translate(-50%,-55%);width:min(92vw,720px);height:calc(var(--cube-size)*1.9);outline-offset:8px}
-    .scene{position:relative;z-index:1;display:grid;place-items:center;width:100%;height:100%;perspective:2800px;pointer-events:none}
-    .cube{position:relative;width:var(--cube-size);height:var(--cube-size);transform-style:preserve-3d;animation:turn 24s linear infinite;will-change:transform}
-    .face{position:absolute;inset:0;background:#080808 center/100% 100% no-repeat;backface-visibility:hidden}
-    .face:after{content:"";position:absolute;inset:0;background:#000;opacity:.035;pointer-events:none}
-    .top:after{opacity:0}.front:after{opacity:.025}.bottom:after{opacity:.12}
-    .front{background-image:url('/assets/cube/front-v3.webp');transform:translateZ(calc(var(--cube-size)/2))}
-    .right{background-image:url('/assets/cube/right-v3.webp');transform:rotateY(90deg) translateZ(calc(var(--cube-size)/2))}
-    .back{background-image:url('/assets/cube/front-v3.webp');transform:rotateY(180deg) translateZ(calc(var(--cube-size)/2))}
-    .left{background-image:url('/assets/cube/right-v3.webp');transform:rotateY(-90deg) translateZ(calc(var(--cube-size)/2))}
-    .top{background-image:url('/assets/cube/top-v3.webp');transform:rotateX(90deg) translateZ(calc(var(--cube-size)/2))}
-    .bottom{background-image:url('/assets/cube/top-v3.webp');transform:rotateX(-90deg) translateZ(calc(var(--cube-size)/2))}
-    @keyframes turn{from{transform:rotateX(-32deg) rotateY(-45deg)}to{transform:rotateX(-32deg) rotateY(315deg)}}
-    .ground-shadow{position:absolute;width:calc(var(--cube-size)*1.9);height:calc(var(--cube-size)*.25);left:50%;bottom:-1%;transform:translateX(-50%);mix-blend-mode:multiply;pointer-events:none;opacity:1;mask-image:radial-gradient(ellipse closest-side,#000 65%,transparent 100%)}
-    .hint{position:absolute;left:50%;top:calc(50% + var(--cube-size)*.94);transform:translateX(-50%);display:block;margin:0;text-align:center;font-size:16px;line-height:1.6;letter-spacing:.28em}
-    .hint:after{content:"";display:block;width:12px;height:12px;border-right:1px solid;border-bottom:1px solid;transform:rotate(45deg);margin:8px auto 0}
-    .links{position:absolute;bottom:22px;left:4.4vw;display:flex;gap:16px;margin:0;color:#555}
-    .links a{display:grid;place-items:center;width:24px;height:24px}
-    .links svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-    .legal{position:absolute;bottom:28px;right:4.4vw;display:flex;justify-content:center;gap:20px;font-size:10px;letter-spacing:.1em;color:#686868}
-    a:focus-visible{outline:2px solid #111;outline-offset:6px}
-    .products:hover,.hint:hover,.links a:hover,.legal a:hover{opacity:.6}
-    @media(max-width:640px){
-      :root{--cube-size:clamp(172px,53vw,260px)}
-      .masthead{padding:25px 24px}.masthead img{width:85px}.products{font-size:11px;letter-spacing:.2em}
-      .hint{font-size:12px}
-      .links{left:24px}.legal{right:24px;font-size:9px;gap:10px}
-    }
-    @media(max-height:650px) and (min-width:641px){:root{--cube-size:36vh}.masthead{padding-top:20px}.hint{font-size:12px}}
-    @media(prefers-reduced-motion:reduce){.cube{animation:none;transform:rotateX(-32deg) rotateY(-45deg)}}
-
-    :root{--cube-size:min(40.5vmin,calc((100svh - 240px)/2.1),365px)}
-    html{scroll-behavior:smooth}
-    .scene{transition:transform .65s cubic-bezier(.2,.7,.2,1);transform:scale(1);transform-origin:center 60%}
-    .ground-shadow{transition:width .65s,opacity .65s}
-    .cube-link:focus-visible .scene{transform:scale(1.3)}
-    @media(hover:hover) and (pointer:fine){.cube-link:hover .scene{transform:scale(1.3)}.cube-link:hover .ground-shadow{width:calc(var(--cube-size)*2.15);opacity:.75}}
-    .links{left:50%;bottom:53px;transform:translateX(-50%);gap:20px}
-    .links a{width:44px;height:44px}.links svg{width:23px;height:23px}
-    .legal{left:0;right:0;bottom:22px}
-    .hint{top:auto;bottom:125px;font-size:13px}
-    #products{border-top:1px solid #e5e5e5;scroll-margin-top:0}
-    #products #labwrk-catalog{padding-top:64px}
-    #products .lw-content{margin-top:0}
-    #products .lw-section-title{margin:0 0 24px;font-size:clamp(38px,5.5vw,62px);line-height:.9;letter-spacing:-.065em;font-weight:900}
-    #products h3{font-weight:900;font-size:clamp(16px,1.9vw,23px);line-height:1.08;letter-spacing:-.055em;margin:0;overflow-wrap:anywhere}
-    @media(max-width:640px){:root{--cube-size:clamp(172px,53vw,260px)}.hero{min-height:640px}.links{left:50%;gap:16px}.legal{left:0;right:0;gap:18px}.hint{font-size:12px}#products #labwrk-catalog{padding-top:40px}#products h3{font-size:22px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scene,.ground-shadow{transition:none}}
-</style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#26282a"><title>LABWRK. · Eigene Produkte. Selbst entwickelt.</title>
+<meta name="description" content="Eigene Konstruktionen – vom ersten Entwurf bis zum fertigen Teil. Einblicke in CAD, Prototypen und die Produkte von LABWRK.">
+<link rel="canonical" href="https://labwrk.de/"><link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preload" href="/assets/site/hero-blue-cube.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/assets/fonts/barlow-condensed-600.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/labwrk.css"><script src="/labwrk.js" defer></script>
 </head>
 <body>
-  <main>
-  <section class="hero" aria-label="LABWRK. entdecken">
-    <div class="brand">
-      <h1 class="sr-only">LABWRK. Automotive-Zubehör in OEM+ Optik</h1>
-      <a class="cube-link" href="#products" aria-label="LABWRK. Produkte ansehen">
-        <img class="ground-shadow" src="/assets/cube/shadow.webp" alt="" aria-hidden="true"><span class="scene" aria-hidden="true"><span class="cube"><span class="face front"></span><span class="face right"></span><span class="face back"></span><span class="face left"></span><span class="face top"></span><span class="face bottom"></span></span></span>
-      </a>
-      <a class="hint" href="#products" aria-label="Produkte entdecken">ENTER</a>
-      <nav class="links" aria-label="Weitere Links">
-        <a href="https://www.instagram.com/labwrk.parts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#products" aria-label="Produkte ansehen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></a>
-        <a href="mailto:info@labwrk.de" aria-label="E-Mail"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
-      </nav>
-    </div>
-  <nav class="legal" aria-label="Rechtliche Informationen"><a href="/impressum/">IMPRESSUM</a><a href="/datenschutz/">DATENSCHUTZ</a><a href="/agb/">AGB</a></nav>
-  </section>
-
-
-<section id="products" aria-label="Produkte"><div id="labwrk-catalog">
-
-<div class="lw-content">
-<section class="lw-overview" aria-label="Produktübersicht">
-  <h2 class="lw-section-title">PRODUCTS.</h2>
-  <nav class="lw-filters" aria-label="Produktkategorien">
-   <button class="lw-filter" data-category="all" aria-pressed="true">ALLE</button>
-   <button class="lw-filter" data-category="covers" aria-pressed="false">ABDECKUNGEN</button>
-   <button class="lw-filter" data-category="interior" aria-pressed="false">INTERIEUR</button>
-  </nav>
-  <div class="lw-grid">
-   <article class="lw-product" data-kind="covers">
-    <a class="lw-open" href="/products/domlagerabdeckung/" aria-label="Domlagerabdeckung – Details ansehen">
-     <div class="lw-photo"><img loading="lazy" class="lw-primary" src="/products/assets/embedded-04db9b3f18a4af37.png" alt="LABWRK Domlagerabdeckungen"><img loading="lazy" class="lw-secondary" src="/products/assets/embedded-4db0bce3bc9649ae.jpg" alt="Domlagerabdeckung im Motorraum"></div>
-     <div class="lw-meta"><span>01 / ABDECKUNGEN</span><span>↗</span></div>
-     <h3>DOMLAGERABDECKUNG.</h3>
-     <p class="lw-sub">BMW E60 · E61 · E63 · E64</p>
-    </a>
-    <div class="lw-buy-group"><a class="lw-buy" href="https://www.ebay.de/itm/407226712050" target="_blank" rel="noopener noreferrer">AUF EBAY ANSEHEN ↗</a><a class="lw-buy lw-buy--etsy" href="https://www.etsy.com/de/listing/4579201558" target="_blank" rel="noopener noreferrer">AUF ETSY ANSEHEN ↗</a></div>
-   </article>
-   <article class="lw-product" data-kind="interior">
-    <a class="lw-open" href="/products/getraenkehalter-e46/" aria-label="BMW E46 Getränkehalter – Details ansehen">
-     <div class="lw-photo lw-cupholder-photo"><img loading="lazy" src="/products/assets/e46-getraenkehalter.jpg" alt="Schwarzer BMW E46 Getränkehalter mit zwei Reduziereinsätzen auf grüner Rastermatte"></div>
-     <div class="lw-meta"><span>02 / INTERIEUR</span><span>↗</span></div>
-     <h3>GETRÄNKEHALTER.</h3><p class="lw-sub">BMW E46 · OEM+ LOOK</p>
-    </a>
-    <div class="lw-buy-group"><a class="lw-buy" href="https://www.ebay.de/itm/407226709195" target="_blank" rel="noopener noreferrer">AUF EBAY ANSEHEN ↗</a><a class="lw-buy lw-buy--etsy" href="https://www.etsy.com/de/listing/4579200624" target="_blank" rel="noopener noreferrer">AUF ETSY ANSEHEN ↗</a></div>
-   </article>
-   <article class="lw-product" data-kind="covers">
-    <a class="lw-open" href="/products/domlagerabdeckung-e46/" aria-label="BMW E46 Domlagerabdeckung – Details ansehen">
-     <div class="lw-photo lw-e46-cover-photo"><img loading="lazy" class="lw-primary" src="/products/assets/e46-domlagerabdeckungen.webp" alt="Zwei schwarze BMW E46 Domlagerabdeckungen auf grüner Rastermatte"><img loading="lazy" class="lw-secondary" src="/products/assets/e46-domlagerabdeckung-eingebaut.webp" alt="Schwarze Domlagerabdeckung im BMW E46 Motorraum"></div>
-     <div class="lw-meta"><span>03 / ABDECKUNGEN</span><span>↗</span></div>
-     <h3>DOMLAGERABDECKUNG.</h3><p class="lw-sub">BMW E46 · OEM+ LOOK</p>
-    </a>
-    <div class="lw-buy-group"><a class="lw-buy" href="https://www.ebay.de/itm/407262877288" target="_blank" rel="noopener noreferrer">AUF EBAY ANSEHEN ↗</a><a class="lw-buy lw-buy--etsy" href="https://www.etsy.com/de/listing/4579184747" target="_blank" rel="noopener noreferrer">AUF ETSY ANSEHEN ↗</a></div>
-   </article>
-   <article class="lw-product" data-kind="interior">
-    <a class="lw-open" href="/products/getraenkehalter-z3/" aria-label="BMW Z3 Getränkehalter – Details ansehen">
-     <div class="lw-photo lw-z3-photo"><img loading="lazy" class="lw-primary" src="/products/assets/z3-getraenkehalter-bild-1.webp" alt="BMW Z3 Getränkehalter in der Mittelkonsole, von oben gesehen"><img loading="lazy" class="lw-secondary" src="/products/assets/z3-getraenkehalter-bild-2.webp" alt="BMW Z3 Getränkehalter aus seitlichem Blickwinkel"></div>
-     <div class="lw-meta"><span>04 / INTERIEUR</span><span>↗</span></div>
-     <h3>GETRÄNKEHALTER.</h3><p class="lw-sub">BMW Z3 · OEM+ LOOK</p>
-    </a>
-    <div class="lw-buy-group"><a class="lw-buy" href="https://www.ebay.de/itm/407262876216" target="_blank" rel="noopener noreferrer">AUF EBAY ANSEHEN ↗</a><a class="lw-buy lw-buy--etsy" href="https://www.etsy.com/de/listing/4585798023/bmw-z3-getrankehalter-fur-mittelkonsole" target="_blank" rel="noopener noreferrer">AUF ETSY ANSEHEN ↗</a></div>
-   </article>
-   <article class="lw-product" data-kind="interior">
-    <a class="lw-open" href="/products/getraenkehalter-e36/" aria-label="BMW E36 Getränkehalter – Details ansehen">
-     <div class="lw-photo lw-e36-photo"><img loading="lazy" class="lw-primary" src="/products/assets/e36-getraenkehalter-eingebaut.webp" width="1086" height="1448" alt="Schwarzer BMW E36 Getränkehalter in der Mittelkonsole"><img loading="lazy" class="lw-secondary" src="/products/assets/e36-getraenkehalter-set.webp" width="1086" height="1448" alt="BMW E36 Getränkehalter-Set mit zwei Einlegeringen, Abdeckung und Befestigungsteilen"></div>
-     <div class="lw-meta"><span>05 / INTERIEUR</span><span>↗</span></div>
-     <h3>GETRÄNKEHALTER.</h3><p class="lw-sub">BMW E36 · OEM+ LOOK</p>
-     <p class="lw-price">28,90 €</p><p class="lw-sub">INKL. VERSAND IN DEUTSCHLAND</p>
-    </a>
-    <div class="lw-buy-group"><a class="lw-buy lw-buy--etsy" href="https://www.etsy.com/de/listing/4597636098" target="_blank" rel="noopener noreferrer">AUF ETSY ANSEHEN ↗</a></div>
-   </article>
-   <article class="lw-product" data-kind="interior">
-    <a class="lw-open" href="/products/shifter-blende-e46/" aria-label="BMW E46 Shifter-Blende – Details ansehen">
-     <div class="lw-photo lw-shifter-photo"><img loading="lazy" class="lw-primary" src="/products/assets/e46-shifter-blende-eingebaut.webp" width="1086" height="1448" alt="Shifter-Blende eingebaut in der BMW E46 Mittelkonsole"><img loading="lazy" class="lw-secondary" src="/products/assets/e46-shifter-blende-vorderseite.webp" width="1086" height="1448" alt="Vorderseite der BMW E46 Shifter-Blende"></div>
-     <div class="lw-meta"><span>06 / INTERIEUR</span><span>↗</span></div>
-     <h3>SHIFTER-BLENDE.</h3><p class="lw-sub">BMW E46 · SHORT SHIFTER</p>
-     <p class="lw-price">24,90 €</p><p class="lw-sub">INKL. VERSAND IN DEUTSCHLAND</p>
-    </a>
-    <div class="lw-buy-group"><a class="lw-buy" href="https://www.ebay.de/itm/407329099169" target="_blank" rel="noopener noreferrer">AUF EBAY ANSEHEN ↗</a><a class="lw-buy lw-buy--etsy" href="https://www.etsy.com/de/listing/4606940931/blende-fur-bmw-e46-short-shifter" target="_blank" rel="noopener noreferrer">AUF ETSY ANSEHEN ↗</a></div>
-   </article>
-  </div>
- </section>
+<a class="skip-link" href="#einblicke">Zum Inhalt</a>
+<main>
+<section class="hero" aria-labelledby="hero-title">
+<img class="hero-photo" src="/assets/site/hero-blue-cube.webp" width="1374" height="1145" alt="LABWRK.-Würfel mit drei beschrifteten Flächen und eine strukturierte Abdeckung auf einer blaugrauen Schneidematte" fetchpriority="high">
+<div class="hero-copy"><h1 id="hero-title"><span>Eigene Produkte.</span><span>Selbst entwickelt.</span></h1><p>Eigene Konstruktionen – vom ersten Entwurf bis zum fertigen Teil.</p><a class="button" href="#projekte">Projekte ansehen</a></div>
+</section>
+<section class="intro section-pad" id="einblicke" aria-labelledby="intro-title">
+<h2 id="intro-title">Was ich mache</h2>
+<div class="capabilities">
+<div><h3>Konstruktion</h3><p>Gehäuse, Halterungen und Einzelteile als 3D-Modell ausarbeiten.</p></div>
+<div><h3>Prototypen</h3><p>Erste Versionen drucken, anprobieren und die Konstruktion überarbeiten.</p></div>
+<div><h3>3D-Druck</h3><p>Druckbare Modelle vorbereiten und die Teile selbst fertigen.</p></div>
 </div>
-<footer class="lw-foot"><a href="/">← BACK TO LABWRK.</a><nav class="lw-legal" aria-label="Rechtliche Informationen"><a href="/impressum/">IMPRESSUM</a><a href="/datenschutz/">DATENSCHUTZ</a><a href="/agb/">AGB</a></nav></footer>
-</div></section>
-<script>
-(()=>{
- const root=document.getElementById('labwrk-catalog');
- const filters=[...root.querySelectorAll('.lw-filter')];
- filters.forEach(button=>button.addEventListener('click',()=>{
-  filters.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
-  root.querySelectorAll('[data-kind]').forEach(p=>p.hidden=button.dataset.category!=='all'&&p.dataset.kind!==button.dataset.category);
- }));
-})();
-</script>
-
+</section>
+<section class="work section-pad" id="projekte" aria-labelledby="work-title">
+<h2 id="work-title">Woran ich arbeite</h2>
+<div class="projects">
+<article class="project" aria-labelledby="airbox-title">
+<div class="project-gallery" data-gallery="airbox">
+<figure class="project-figure"><div class="photo-frame"><img id="airbox-image" style="--crop-zoom:1.14;--crop-origin:50% 70%" src="/assets/site/airbox-corrected-main.webp" width="1500" height="1300" alt="Zusammengebaute dreiteilige Muschel-Airbox mit separaten Haltern und korrekt nach unten gerichtetem Einlass" loading="lazy" decoding="async"></div><figcaption id="airbox-caption" aria-live="polite">CAD-Entwurf · Gesamtansicht</figcaption></figure>
+<div class="view-switch" aria-label="Airbox-Ansicht"><button type="button" data-airbox-view="main" aria-pressed="true">Gesamtansicht</button><button type="button" data-airbox-view="detail" aria-pressed="false">Detail</button></div>
+</div>
+<div class="project-copy"><h3 id="airbox-title">Airbox</h3><p>Dreiteilige Airbox mit bauchigem Gehäuse und abnehmbaren Haltern. Das Projekt ist noch in der Entwicklung.</p></div>
+</article>
+<article class="project cupholders" aria-labelledby="cupholder-title">
+<div class="project-gallery" data-gallery="cupholder">
+<figure class="project-figure"><div class="photo-frame"><img id="cupholder-image" style="--crop-zoom:1.6;--crop-origin:0% 56%" src="/products/assets/z3-getraenkehalter-bild-1.webp" width="1086" height="1448" alt="Getränkehalter eingebaut in der Mittelkonsole eines BMW Z3 mit braunem Leder" loading="lazy" decoding="async"></div><figcaption id="cupholder-caption" aria-live="polite">Z3 · Gesamtansicht im Fahrzeug</figcaption></figure>
+<div class="gallery-controls">
+<div class="model-switch" aria-label="Fahrzeug auswählen"><button type="button" data-cupholder="z3" aria-pressed="true">Z3</button><button type="button" data-cupholder="e36" aria-pressed="false">E36</button><button type="button" data-cupholder="e46" aria-pressed="false">E46</button></div>
+<div class="view-switch" aria-label="Getränkehalter-Ansicht"><button type="button" data-cupholder-view="main" aria-pressed="true">Gesamtansicht</button><button type="button" data-cupholder-view="detail" aria-pressed="false">Detail</button></div>
+</div>
+</div>
+<div class="project-copy"><h3 id="cupholder-title">Getränkehalter</h3><p>Getränkehalter für die Mittelkonsole. Entwickelt für Z3, E36 und E46.</p><a id="cupholder-product-link" class="button product-link" href="/products/getraenkehalter-z3/" aria-label="Z3-Getränkehalter ansehen und kaufen">Z3 ansehen &amp; kaufen</a></div>
+</article>
+</div>
+</section>
 </main>
+<footer class="footer section-pad"><div class="footer-contact"><a href="/products/">Alle Produkte</a><a href="mailto:info@labwrk.de">E-Mail</a><a href="https://www.instagram.com/labwrk.parts/" target="_blank" rel="noopener noreferrer">Instagram</a></div><nav aria-label="Rechtliche Informationen"><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a><a href="/agb/">AGB</a></nav></footer>
 </body>
 </html>
-

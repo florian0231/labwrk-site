@@ -1,42 +1,35 @@
-# LABWRK competence preview — verification status
+# LABWRK revised portfolio — verification status
 
 final result: blocked
 
-## Scope and visual target
+## Visual target and approved changes
 
-Selected visual: Werkbank × Material, approved in the conversation.
-Source visual truth path: /workspace/scratch/b6e0aa1e5820/generated_images/exec-b0fb17b3-0bd3-44c6-a57c-2f8b2d727536.png (1024 × 1536 px).
-Original repository: florian0231/labwrk-site; isolated branch design/competence-preview.
+Source visual truth: /workspace/scratch/b6e0aa1e5820/generated_images/exec-a43ac7a0-837b-488f-81ef-1b248636d960.png, 1024 × 1536 px.
+The user requested general construction/3D-printing positioning, corrected landing-page text formatting, a denser second section, airbox and cupholder projects with appealing imagery, and first-person about copy without a name introduction. These content/section changes intentionally depart from the earlier mock. The header corners remain clear.
 
-## Browser evidence and blocker
+## Browser blocker and evidence
 
-Cloud Browser attempted http://terminal.local:4173/ after the supported sites-preview service reported running. The browser rendered only:
-“upstream connect error or disconnect/reset before headers. reset reason: connection termination”.
-The supported service was stopped, valid static preview output and configuration were prepared, then it was restarted once. The same browser error persisted.
+Supported sites-preview service reports running. The current Cloud Browser navigation to http://terminal.local:4173/ timed out and its resulting visible AX state showed: upstream connect error or disconnect/reset before headers; reset reason: connection termination. No rendered application screenshot is available. No file-URL workaround was attempted.
 
-Implementation screenshot: unavailable; the application was not rendered.
-Viewport: browser default; no valid CSS viewport or image-density measurement for the implementation.
-State: initial navigation blocked by preview infrastructure.
-Full-view and focused visual comparison: blocked; no implementation capture exists.
-Primary interactions: project dialogs, image switching, Escape/focus restoration, anchor navigation, legal/contact links are implemented but unverified in browser.
-Console errors: not checked on a rendered application.
+Implementation screenshot: unavailable.
+Viewport: browser default; no valid app CSS viewport/density can be measured while the route is blocked.
+State: initial route.
+Full-view comparison and focused-region comparison: blocked, because no browser-rendered implementation exists.
+Console check: not completed on a rendered page.
+Primary interactions implemented: hero anchor, native project details, E36/E46/Z3 gallery buttons, mail/Instagram/legal links. They remain browser-unverified.
 
-## Fidelity surfaces
+## Five fidelity surfaces
 
-- Typography: self-hosted Anton for display, existing Inter Tight for navigation, Arial for body; visual wrapping and font loading not browser-verified.
-- Spacing/layout: selected hero + competence section retained; project narratives and brand section extend the selected mock. Responsive rules authored, including stacked competence rows below 430 px; not browser-verified.
-- Colors: petrol #122321, graphite #202322, chalk #f1ebe1, amber #dca866; contrast and photographic text legibility still need visual verification.
-- Images: separate Imagegen photographic hero asset, authentic repository product photographs, unchanged existing cube face textures and CSS rotation. Background is conceptual artwork, not documentary evidence. Image crops and mobile focal position need browser review.
-- Copy: describes competence through own products; no commissioned-service offer, prices or marketplace links on the new homepage. Text remains a first editorial draft.
+- Typography: Anton for display, Inter Tight for actions, Arial for body. Short descriptive hero headline replaces long BMW-only copy. Measured actual Anton text width at viewport widths 320, 375, 390, 700, 701, 1024, 1348, 1920: the headline fits the available page width at all samples. Browser line-height/metrics still need capture.
+- Layout: explicit hero heading line spans, denser two-column competence section with full-height installation image and three explanatory rows; two substantial project stories; first-person about. Mobile stacks sections and image/text intentionally. Overflow and responsive visual QA remain open.
+- Colors: petrol #122321, paper #f1ebe1, ink #202322 and amber #dca866 preserved. Photographic background has gentler contrast. Mobile adds uniform opacity reduction for legibility; actual contrast needs visual inspection.
+- Images: new source-aligned hero includes cube within the photograph, no extra CSS cube. Airbox rendered from original V2 STL files without inventing an assembly. Installation photographs are existing repository assets. The development state is labelled. No handcrafted icon/image replacements. Image crops require final browser review.
+- Copy: general construction and printing focus, BMW appears only in project examples and captions. Airbox is explicitly in development. About uses first person without name introduction. No sales claims or purchase links.
 
-## Completed checks
+## Checks completed
 
-- node --check labwrk.js: passed.
-- git diff --check: passed.
-- All homepage local asset/link paths and all project gallery images resolve to existing repository files.
-- New homepage contains no eBay/Etsy purchase links.
-- Existing product detail/legal pages are retained; no main-branch or live-site update performed.
+node --check labwrk.js, git diff --check, all local asset/link targets, source metadata and headline width measurements pass. Gallery code updates src, alt, caption and pressed state together. Native details preserve operation without JS. No main/live update.
 
-## Remaining gate
+## Required remaining gate
 
-Restore supported preview connectivity, capture desktop and mobile renders, compare hero/competence section to the selected mock, test every project dialog/gallery plus keyboard and contact/legal links, inspect console, fix findings, then mark final result passed.
+Restore supported preview connectivity. Capture desktop/mobile, compare target hero and intentional revised sections, test gallery buttons, anchors, details, keyboard and contact/legal links, inspect console, address findings and only then change final result to passed.

@@ -1,17 +1,21 @@
-# LABWRK — competence website draft
+# LABWRK — construction and 3D printing portfolio draft
 
-The homepage introduces LABWRK through its own products: construction, prototypes and FDM printing. It is a portfolio, with three interactive project narratives rather than purchase links.
+The homepage introduces LABWRK generally through construction, prototypes and FDM printing. The two chosen project families are the E36 airbox (development project) and cupholders (E36, E46, Z3). The about copy uses first person without a name introduction.
 
-Run `npm install`, then `npm run dev -- --host 0.0.0.0 --port 4173 --strictPort` for development. All public assets remain ordinary static files; GitHub Pages needs no framework runtime for the homepage.
+Run npm install, then npm run dev -- --host 0.0.0.0 --port 4173 --strictPort. Public output remains ordinary static HTML/CSS/JS and needs no framework runtime on GitHub Pages.
 
-## Design
+## Images and interaction
 
-Werkbank × Material: dark petrol, warm chalk, amber accent. The existing cube is still separately animated with the original textures. Homepage top corners have no header labels.
+- Hero: revised generated workbench photograph with the small LAB/WRK cube physically integrated in the scene; no separate animated overlay.
+- Airbox: studio rendering of the actual supplied V2 STL components, shown separately and explicitly labelled as a development/CAD state. It does not assert approved fit or a finished product.
+- Cupholders: existing repository installation images; E36/E46/Z3 buttons change image, alt text and caption.
+- Both projects have native expandable details. No shop or purchase flow is linked from this homepage.
+- Display font Anton is self-hosted with its license.
 
-The hero background is generated conceptual imagery and should eventually be replaced by an original photograph if documentary accuracy is required. Project/gallery photos are existing real repository assets. Display font Anton is self-hosted with its OFL license.
+## Export
 
-The product detail pages remain unchanged in this branch. The new homepage does not link visitors into their former retail flow. Editing all legacy product pages is outside this preview.
+python3 scripts/export-preview.py /absolute/output/LABWRK_Vorschau.html creates a self-contained offline preview.
 
 ## Verification
 
-Source and asset checks passed. Browser verification is blocked by the managed preview route; see design-qa.md. This draft is not approved for publishing. No change has been merged to main.
+JavaScript syntax, asset/link paths, headline font measurements at widths 320–1920 and diff checks pass. Managed Cloud Browser preview still returns an upstream connection error, so browser and interaction verification remain blocked. See design-qa.md. Main has not been updated.

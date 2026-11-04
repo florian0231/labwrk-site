@@ -10,3 +10,5 @@
 @media(max-width:700px){.hero{height:860px;min-height:0;max-height:none}.hero-photo{object-position:54% 16%}.hero:before{clip-path:polygon(0 43%,75% 52%,100% 65%,100% 100%,0 100%)}.hero-copy{width:calc(100% - 48px);bottom:42px}.hero-copy h1{font-size:clamp(48px,9.4vw,64px)}.hero-copy p{font-size:16px;max-width:29ch;margin:17px 0 22px}.capabilities{grid-template-columns:1fr;gap:28px}.capabilities p{max-width:42ch}.intro{padding-block:62px;gap:32px}.projects{grid-template-columns:1fr;gap:66px}.cupholders{padding-top:0}.work{padding-top:10px;padding-bottom:64px}.work>h2{margin-bottom:32px}.photo-frame{aspect-ratio:4/5;max-height:none}.project-copy{margin-top:18px}.footer{padding-top:10px;gap:28px}.footer-contact{gap:32px}.footer nav{gap:22px}}
 @media(max-width:360px){.hero{height:790px}.hero-copy h1{font-size:42px}.hero-copy p{font-size:15px}.section-pad{padding-inline:22px}.view-switch,.model-switch{gap:14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}.hero-photo{transform:none!important;will-change:auto}.button:hover{transform:none}}
+
+.product-link{margin-top:24px}

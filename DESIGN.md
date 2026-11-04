@@ -35,3 +35,7 @@ Sichtprüfung im Cloud-Browser blockiert, siehe design-qa.md. Vor Veröffentlich
 ## Bildausschnitte – Korrektur nach Rückmeldung
 
 Beide Projektbilder auf gleiche Breite und Höhe ausgerichtet, Format 4:5. Keine künstlichen Einpassränder. Motivbezogene Ausschnitte für jede Galerieansicht; bei Z3 wird die Sitzfläche reduziert und der Getränkehalter betont. Die CAD-Geometrie und Bilddateien bleiben unverändert. Gesamtansichten behalten das Produkt, Detailansichten dürfen näher herangehen. Bildwechsel setzen auch den passenden Ausschnitt zurück.
+
+## Kaufweg
+
+Bei den Getränkehaltern führt ein Button zur vorhandenen Produktdetailseite der ausgewählten Variante Z3/E36/E46. Diese Seiten enthalten die bestehenden eBay-/Etsy-Kauflinks. Fahrzeugwechsel aktualisiert Bild, Text und Link gemeinsam; die Airbox erhält keinen Kauflink. Der Footer bietet Alle Produkte zur bestehenden Übersicht. Veröffentlichung wurde vom Nutzer gestoppt und bleibt ausgesetzt.

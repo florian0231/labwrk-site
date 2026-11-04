@@ -1,7 +1,7 @@
 const cupholders = {
- z3:{main:'/products/assets/z3-getraenkehalter-bild-1.webp',detail:'/products/assets/z3-getraenkehalter-bild-2.webp',alt:'Getränkehalter im BMW Z3 mit braunem Leder'},
- e36:{main:'/products/assets/e36-getraenkehalter-eingebaut.webp',detail:'/products/assets/e36-getraenkehalter-draufsicht.webp',alt:'Getränkehalter für die Mittelkonsole des BMW E36'},
- e46:{main:'/products/assets/e46-getraenkehalter-eingebaut.webp',detail:'/products/assets/e46-getraenkehalter.jpg',alt:'Getränkehalter für die Mittelkonsole des BMW E46'}
+ z3:{product:'/products/getraenkehalter-z3/',main:'/products/assets/z3-getraenkehalter-bild-1.webp',detail:'/products/assets/z3-getraenkehalter-bild-2.webp',alt:'Getränkehalter im BMW Z3 mit braunem Leder'},
+ e36:{product:'/products/getraenkehalter-e36/',main:'/products/assets/e36-getraenkehalter-eingebaut.webp',detail:'/products/assets/e36-getraenkehalter-draufsicht.webp',alt:'Getränkehalter für die Mittelkonsole des BMW E36'},
+ e46:{product:'/products/getraenkehalter-e46/',main:'/products/assets/e46-getraenkehalter-eingebaut.webp',detail:'/products/assets/e46-getraenkehalter.jpg',alt:'Getränkehalter für die Mittelkonsole des BMW E46'}
 };
 const photoCrops={
  z3:{main:{zoom:1.6,origin:'0% 56%',position:'50% 50%'},detail:{zoom:1.55,origin:'30% 85%',position:'50% 50%'}},
@@ -16,10 +16,11 @@ function setPhotoCrop(image,crop){
 let currentModel='z3',currentView='main';
 const cupholderImage=document.getElementById('cupholder-image');
 const cupholderCaption=document.getElementById('cupholder-caption');
+const productLink=document.getElementById('cupholder-product-link');
 const modelButtons=[...document.querySelectorAll('[data-cupholder]')];
 const viewButtons=[...document.querySelectorAll('[data-cupholder-view]')];
 function renderCupholder(){
- const model=cupholders[currentModel];setPhotoCrop(cupholderImage,photoCrops[currentModel][currentView]);cupholderImage.src=model[currentView];cupholderImage.alt=model.alt+(currentView==='main'?' · Gesamtansicht im Fahrzeug':' · Detailansicht');
+ const model=cupholders[currentModel];productLink.href=model.product;productLink.textContent=currentModel.toUpperCase()+' ansehen & kaufen';productLink.setAttribute('aria-label',currentModel.toUpperCase()+'-Getränkehalter ansehen und kaufen');setPhotoCrop(cupholderImage,photoCrops[currentModel][currentView]);cupholderImage.src=model[currentView];cupholderImage.alt=model.alt+(currentView==='main'?' · Gesamtansicht im Fahrzeug':' · Detailansicht');
  cupholderCaption.textContent=currentModel.toUpperCase()+' · '+(currentView==='main'?'Gesamtansicht im Fahrzeug':'Detailansicht');
  modelButtons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cupholder===currentModel)));
  viewButtons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cupholderView===currentView)));

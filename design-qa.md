@@ -47,3 +47,9 @@ Live main branch is unchanged. This is an unverified draft, not a passed design 
 ## Image-framing revision
 
 User reports excessive/uneven project image margins. Updated equal-width 4:5 frames, removed vertical offset, changed contain to cover and added individual crop/focal settings for each gallery state. Initial crops are in markup. Hover no longer changes image framing; reduced motion leaves crops intact. Original pixels and geometry unchanged. Browser visual comparison remains blocked by the recorded upstream preview connection error; these crop settings require user review.
+
+## Purchase navigation revision
+
+Added model-specific cupholder product-page button with correct default Z3 target and a footer route to the existing products overview. Product-page sources contain eBay/Etsy links. Offline export turns these navigation targets into live HTTPS URLs while keeping image assets embedded. Marketplace stock/availability is not claimed. User stopped publication; no merge or live update authorized in this revision.
+
+Purchase-path checks: Z3/E36/E46 detail pages returned HTTP 200 and each served existing eBay/Etsy links. DOM-simulated model and view changes retained the correct product link. Initial/offline navigation targets were checked. This does not verify marketplace inventory or replace blocked visual browser QA.

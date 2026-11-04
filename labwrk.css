@@ -18,3 +18,6 @@ dialog{color:var(--graphite);background:var(--chalk);border:0;padding:26px;width
 .cube-shadow{position:absolute;z-index:-1;left:50%;bottom:5%;width:95%;height:10%;max-width:none;transform:translateX(-50%);mix-blend-mode:multiply;opacity:.65;pointer-events:none}
 @keyframes cube-sway{0%,100%{transform:translateY(2px) rotateX(-16deg) rotateY(-28deg)}50%{transform:translateY(-5px) rotateX(-18deg) rotateY(-36deg)}}
 @media(prefers-reduced-motion:reduce){.cube{animation:none;transform:rotateX(-16deg) rotateY(-28deg)}}
+
+/* Allow natural sentence copy to wrap on small screens. */
+.hero-copy p{max-width:36ch;white-space:normal}

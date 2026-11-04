@@ -1,18 +1,29 @@
 const projects = {
   cupholder: {
-    category: 'FUNKTION & INTEGRATION', title: 'GETRÄNKEHALTER.', model: 'BMW E46',
-    images: [['EINGEBAUT', '/products/assets/e46-getraenkehalter-eingebaut.webp', 'Getränkehalter in der BMW E46 Mittelkonsole'], ['BAUTEILE', '/products/assets/e46-getraenkehalter.jpg', 'Grundkörper und zwei herausnehmbare Reduziereinsätze auf der Schneidematte']],
-    story: [['DIE AUFGABE', 'Zwei Getränkeplätze in die vorhandene Mittelkonsole integrieren – mit einer Gestaltung, die zum Interieur passt.'], ['DIE KONSTRUKTION', 'Ein gemeinsamer Grundkörper kombiniert zwei Getränkeplätze mit einem Ablagefach. Herausnehmbare Reduziereinsätze ermöglichen unterschiedliche nutzbare Durchmesser.'], ['DAS BAUTEIL', 'Das fertige Set zeigt das Zusammenspiel aus CAD-Geometrie, additiver Fertigung und Einbau im Fahrzeug. Die Einsätze bleiben separat entnehmbar.']]
+    category: 'Mittelkonsole', title: 'Getränkehalter', model: 'BMW E46',
+    images: [['Im Auto', '/products/assets/e46-getraenkehalter-eingebaut.webp', 'Getränkehalter in der BMW E46 Mittelkonsole'], ['Die Einzelteile', '/products/assets/e46-getraenkehalter.jpg', 'Grundkörper und zwei herausnehmbare Einsätze auf der Schneidematte']],
+    story: [
+      ['Platz für zwei Getränke', 'Der Halter sitzt in der Mittelkonsole des E46. Vorne sind zwei Getränkeplätze, dahinter bleibt ein kleines Ablagefach.'],
+      ['Herausnehmbare Einsätze', 'Die beiden Ringe verkleinern die Öffnungen für schmalere Becher. Brauchst du mehr Platz, kannst du sie einfach herausnehmen.'],
+      ['An die Konsole angepasst', 'Die Außenkontur und die Aufteilung habe ich für die E46-Mittelkonsole konstruiert. Auf den Fotos siehst du das fertige Set und den Halter im Auto.']
+    ]
   },
   covers: {
-    category: 'FORM & OBERFLÄCHE', title: 'DOMLAGERABDECKUNG.', model: 'BMW E60 · E61 · E63 · E64',
-    images: [['BAUTEILE', '/products/assets/embedded-04db9b3f18a4af37.png', 'LABWRK. Domlagerabdeckungen mit strukturierter Oberfläche'], ['EINGEBAUT', '/products/assets/embedded-4db0bce3bc9649ae.jpg', 'Domlagerabdeckung im Motorraum']],
-    story: [['DIE AUFGABE', 'Eine Abdeckung für den Domlagerbereich entwickeln, die sich optisch in den Motorraum einfügt.'], ['DIE GESTALTUNG', 'Eine reduzierte runde Form, eine strukturierte Sichtfläche und der integrierte LABWRK.-Schriftzug prägen das Bauteil.'], ['DAS DETAIL', 'An diesem Projekt werden die Gestaltung von Oberflächen und die Umsetzung einer eigenen Form im 3D-Druck sichtbar.']]
+    category: 'Motorraum', title: 'Domlagerabdeckungen', model: 'BMW E60 · E61 · E63 · E64',
+    images: [['Die Abdeckungen', '/products/assets/embedded-04db9b3f18a4af37.png', 'Zwei LABWRK. Domlagerabdeckungen'], ['Im Motorraum', '/products/assets/embedded-4db0bce3bc9649ae.jpg', 'Domlagerabdeckung im Motorraum']],
+    story: [
+      ['Für den Domlagerbereich', 'Diese Abdeckungen habe ich für den BMW E60, E61, E63 und E64 entwickelt. Sie verdecken den oberen Bereich der Domlager.'],
+      ['Die Oberfläche', 'Die Außenseite ist rund und strukturiert. Den LABWRK.-Schriftzug habe ich direkt in das Modell eingearbeitet, sodass er mitgedruckt wird.']
+    ]
   },
   shifter: {
-    category: 'ANPASSUNG & KONSTRUKTION', title: 'SHIFTER-BLENDE.', model: 'BMW E46 · SHORT SHIFTER',
-    images: [['EINGEBAUT', '/products/assets/e46-shifter-blende-eingebaut.webp', 'Shifter-Blende um den Short Shifter in der E46 Mittelkonsole'], ['VORDERSEITE', '/products/assets/e46-shifter-blende-vorderseite.webp', 'Vorderseite der strukturierten Blende'], ['RÜCKSEITE', '/products/assets/e46-shifter-blende-rueckseite.webp', 'Rückseite der Blende mit konstruierten Halteclips']],
-    story: [['DIE AUFGABE', 'Den Bereich rund um einen nachgerüsteten Short Shifter in der BMW E46 Mittelkonsole gestalten.'], ['DIE KONSTRUKTION', 'Kontur, Ausschnitt und Befestigung müssen zusammenspielen. Der Schalthebel und Teile der Mechanik bleiben sichtbar; der umgebende Bereich wird abgedeckt.'], ['DIE INTEGRATION', 'Die strukturierte Oberfläche nimmt die Optik des Interieurs auf. Die Einbausituation zeigt, wie ein eigenes Bauteil einen vorhandenen Umbau ergänzt.']]
+    category: 'Umbau', title: 'Shifter-Blende', model: 'BMW E46 · Short Shifter',
+    images: [['Im Auto', '/products/assets/e46-shifter-blende-eingebaut.webp', 'Shifter-Blende in der E46 Mittelkonsole'], ['Vorderseite', '/products/assets/e46-shifter-blende-vorderseite.webp', 'Vorderseite der Blende'], ['Rückseite', '/products/assets/e46-shifter-blende-rueckseite.webp', 'Rückseite der Blende mit Halteclips']],
+    story: [
+      ['Eine Blende für den Umbau', 'Die Blende deckt den Bereich um einen nachgerüsteten Short Shifter im E46 ab. Der Schalthebel und ein Teil der Mechanik bleiben sichtbar.'],
+      ['Ausschnitt und Befestigung', 'Bei der Konstruktion geht es vor allem um die Außenkontur, den Ausschnitt und die Halteclips. Der Schalthebel muss sich dabei über den ganzen Schaltweg frei bewegen können.'],
+      ['So sitzt sie im Auto', 'Die Bilder zeigen die Blende einzeln und eingebaut. Ob sie zu einem Umbau passt, hängt von der Mittelkonsole und dem verwendeten Shifter ab.']
+    ]
   }
 };
 const dialog = document.getElementById('project-dialog');
@@ -32,7 +43,7 @@ document.querySelectorAll('[data-project]').forEach(button => button.addEventLis
   document.getElementById('dialog-model').textContent = project.model;
   tabs.replaceChildren(...project.images.map(([label], index) => {
     const tab = document.createElement('button'); tab.type = 'button'; tab.textContent = label;
-    tab.setAttribute('aria-label', `${label}: Projektbild anzeigen`);
+    tab.setAttribute('aria-label', `${label}: Bild anzeigen`);
     tab.addEventListener('click', () => showImage(project, index)); return tab;
   }));
   document.getElementById('dialog-story').replaceChildren(...project.story.map(([title, text]) => {
